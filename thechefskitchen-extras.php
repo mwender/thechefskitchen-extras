@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name:     The Chef's Kitchen Extras
+ * Plugin Name:     The Chef's Workshop Extras
  * Plugin URI:      https://github.com/mwender/thechefskitchen-extras
- * Description:     Various extensions for The Chef's Kitchen website
+ * Description:     Various extensions for The Chef's Workshop website
  * Author:          TheWebist
  * Author URI:      https://mwender.com
  * Text Domain:     thechefskitchen-extras
  * Domain Path:     /languages
- * Version:         0.2.0
+ * Version:         0.2.1
  *
  * @package         TCK_Extras
  */
@@ -48,7 +48,7 @@ require_once( TCK_PLUGIN_PATH . 'lib/fns/utilities.php' );
  * @return     array  Array with API Key.
  */
 function thechefskitchen_acf_google_map_api( $api ){
-  if( defined( GOOGLE_MAPS_API_KEY ) )
+  if( GOOGLE_MAPS_API_KEY )
     $api['key'] = GOOGLE_MAPS_API_KEY;
   return $api;
 }
