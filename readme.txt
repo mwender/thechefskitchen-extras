@@ -5,7 +5,7 @@ Tags: shortcodes
 Requires at least: 5.7
 Tested up to: 5.8.1
 Requires PHP: 7.4
-Stable tag: 0.2.1
+Stable tag: 0.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -119,6 +119,10 @@ Add `[webinar_registration_link]` to any event post to link to the Webinar Regis
 ```
 
 == Changelog ==
+
+= 0.3.0 =
+* Updating Event Calendar layout.
+* Adding display for Location Featured Images.
 
 = 0.2.1 =
 * Bugfix: Proper check for `GOOGLE_MAPS_API_KEY`.

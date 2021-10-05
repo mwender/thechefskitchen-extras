@@ -1,6 +1,21 @@
   .event{
     margin-bottom: 2em;
   }
+  .event ul,
+  .event ol{
+    padding-left: 1.25em;
+  }
+  .event p + ul,
+  .event p + ol{
+    margin-top:  -0.9rem;
+  }
+  .event p.location{
+    margin-bottom: 1.5rem;
+  }
+  .event .heading{
+    text-transform: uppercase;
+    font-weight: bold;
+  }
   .event .time{
     font-family: "Roboto Slab", serif;
     font-weight: bold;
@@ -42,13 +57,27 @@
   }
 .event.mobile{
   display: none;
-  padding-bottom: 0;
+
 }
 .event.mobile .row{
-  margin-bottom: 1em;
+  margin-bottom: 0;
+}
+.event.mobile .current_day{
+  margin: 0 auto;
+  width: 60px;
+}
+.event.mobile .current_day .date{
+  font-size:  24px;
+  line-height: 24px;
+}
+.event.mobile .current_day .day,
+.event.mobile .current_day .month{
+  font-size:  14px;
 }
 .event.mobile .time{
   border-bottom: none;
+  text-align: center;
+  font-size: 14px;
 }
 @media screen and (max-width: 879px) {
     .event.mobile{

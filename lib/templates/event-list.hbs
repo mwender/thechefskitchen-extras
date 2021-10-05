@@ -13,39 +13,53 @@
     {{start_time}}-{{end_time}}
   </div>
   <div class="col-sm-7 details">
-    <h2>{{{title}}}</h2>
-    <p><strong>Vendors:</strong></p>
-    <ul>
-    {{#each food_trucks}}
-      <li>{{{.}}}</li>
+    <p class="location"><a href="{{location.link}}" target="_blank">
+    {{#if location.thumbnail}}
+      <img src="{{location.thumbnail}}" style="max-width: 200px; height: auto;" />
+    {{else}}
+      {{location.name}}
+    {{/if}}
+    <br>{{{location.address}}}</a>
+    </p>
+    <p class="heading">Food Trucks:</p>
+    {{#each food_trucks as | truck | }}
+      <div class="row">
+        <div class="col-xs-5"><strong>{{{name}}}</strong></div>
+        <div class="col-xs-7">{{short_description}}</div>
+      </div>
     {{/each}}
-  </ul>
-   <p><strong>Location:</strong><br/><a href="{{location.link}}" target="_blank">{{location.name}}<br>{{{location.address}}}</a></p>
   </div>
 </div>
 <div class="event mobile">
   <div class="row">
-    <div class="col-xs-2">
+    <div class="col-xs-3">
       <div class="current_day">
         <div class="day">{{current_day.day}}</div>
         <div class="date">{{current_day.date}}</div>
         <div class="month">{{current_day.month}}</div>
       </div>
-    </div>
-    <div class="col-xs-10">
-      <h2>{{{title}}}</h2>
       <div class="time">{{start_time}}-{{end_time}}</div>
+    </div>
+    <div class="col-xs-9">
+
+      <p class="location"><a href="{{location.link}}" target="_blank">
+      {{#if location.thumbnail}}
+        <img src="{{location.thumbnail}}" style="max-width: 200px; height: auto;" />
+      {{else}}
+        {{location.name}}
+      {{/if}}
+      <br>{{{location.address}}}</a>
+      </p>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <p><strong>Vendors:</strong></p>
-      <ul>
-      {{#each food_trucks}}
-        <li>{{{.}}}</li>
+      <p class="heading">Food Trucks:</p>
+      {{#each food_trucks as | truck | }}
+        <div class="row" style="margin-bottom: .5em;">
+          <div class="col-xs-12"><strong>{{{name}}}</strong>{{#if short_description}}<br>{{short_description}}{{/if}}</div>
+        </div>
       {{/each}}
-    </ul>
-     <p><strong>Location:</strong><br/><a href="{{location.link}}" target="_blank">{{location.name}}<br>{{{location.address}}}</a></p>
     </div>
   </div>
 </div>

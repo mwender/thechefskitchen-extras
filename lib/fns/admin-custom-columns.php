@@ -3,7 +3,7 @@
 namespace tck\customcolumns;
 
 /**
- * Adds columns to the Team Member CPT
+ * Adds columns to the Event CPT
  *
  * @param      array  $columns  The columns
  *
@@ -26,6 +26,28 @@ function set_event_edit_columns($columns) {
   return $columns;
 }
 add_filter( 'manage_event_posts_columns', __NAMESPACE__ . '\\set_event_edit_columns' );
+
+/**
+ * Adds columns to the Food Truck CPT
+ *
+ * @param      array  $columns  The columns
+ *
+ * @return     array  Filtered $columns array
+ */
+function set_food_trucks_edit_columns($columns) {
+  $columns['short_description'] = __( 'Short Description', 'tck' );
+  uber_log('$columns = ' . print_r( $columns, true ) );
+
+  // Re-order columns
+  $columns = [
+    'cb' => $columns['cb'],
+    'title' => $columns['title'],
+    'short_description' => $columns['short_description'],
+    'date' => $columns['date'],
+  ];
+  return $columns;
+}
+add_filter( 'manage_food_trucks_posts_columns', __NAMESPACE__ . '\\set_food_trucks_edit_columns' );
 
 /**
  * Sort `Event` CPTs in admin by start_date.
@@ -95,3 +117,18 @@ function custom_event_column( $column, $post_id ){
   }
 }
 add_action( 'manage_event_posts_custom_column', __NAMESPACE__ . '\\custom_event_column', 10, 2 );
+
+/**
+ * Adds column content to Food Truck CPT custom columns
+ *
+ * @param      string  $column   The column
+ * @param      int     $post_id  The post identifier
+ */
+function custom_food_trucks_column( $column, $post_id ){
+  switch( $column ){
+    case 'short_description':
+      echo get_post_meta( $post_id, 'short_description', true );
+      break;
+  }
+}
+add_action( 'manage_food_trucks_posts_custom_column', __NAMESPACE__ . '\\custom_food_trucks_column', 10, 2 );

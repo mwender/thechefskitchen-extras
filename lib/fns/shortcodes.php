@@ -60,13 +60,29 @@ function event_list( $atts ){
     foreach( $futureposts as $post ){
       $events[$x]['title'] = get_the_title( $post->ID );
 
+      // Get the location
+      $location_id = get_post_meta( $post->ID, 'location', true );
+      $events[$x]['location']['name'] = ( $location_id )? get_the_title( $location_id ) : false ;
+
+      $events[$x]['location']['thumbnail'] = ( has_post_thumbnail( $location_id ) )? get_the_post_thumbnail_url( $location_id, 'full' ) : false ;
+
+      // Build the address
+      $address_field = get_field( 'address', $location_id );
+      $format = '<span class="segment-street_number">%s</span> <span class="segment-street_name_short">%s</span><br><span class="segment-city">%s</span>, <span class="segment-state_short">%s</span> <span class="segment-post_code">%s</span>';
+      $street_name = ( isset( $address_field['street_name_short'] ) && ! empty( $address_field['street_name_short'] ) )? $address_field['street_name_short'] : $address_field['street_name'];
+      $address = sprintf( $format, $address_field['street_number'], $street_name, $address_field['city'], $address_field['state_short'], $address_field['post_code'] );
+      $events[$x]['location']['address'] = $address;
+
+      // Google Map Link
+      $events[$x]['location']['link'] = 'https://www.google.com/maps/search/?api=1&query=' . urlencode( $address_field['street_number'] . ' ' . $street_name . ' ' . $address_field['city'] . ' ' . $address_field['state_short'] . ' ' . $address_field['post_code'] );
+
       // Get Food Trucks
       $food_trucks = get_post_meta( $post->ID, 'food_trucks' );
       if( $food_trucks && is_array( $food_trucks ) ){
         $food_trucks = $food_trucks[0];
         $food_truck_list = [];
         foreach( $food_trucks as $food_truck_id ){
-          $food_truck_list[] = get_the_title( $food_truck_id );
+          $food_truck_list[] = [ 'name' => get_the_title( $food_truck_id ), 'short_description' => get_post_meta( $food_truck_id, 'short_description', true ) ];
         }
         $events[$x]['food_trucks'] = $food_truck_list;
       }
@@ -86,21 +102,6 @@ function event_list( $atts ){
 
       $events[$x]['start_time'] = $start_date->format( 'ga' );
       $events[$x]['end_time'] = $end_date->format( 'ga' );
-
-      // Get the location
-      $location_id = get_post_meta( $post->ID, 'location', true );
-      $events[$x]['location']['name'] = ( $location_id )? get_the_title( $location_id ) : false ;
-
-      // Build the address
-      $address_field = get_field( 'address', $location_id );
-      $format = '<span class="segment-street_number">%s</span> <span class="segment-street_name_short">%s</span><br><span class="segment-city">%s</span>, <span class="segment-state_short">%s</span> <span class="segment-post_code">%s</span>';
-      $street_name = ( isset( $address_field['street_name_short'] ) && ! empty( $address_field['street_name_short'] ) )? $address_field['street_name_short'] : $address_field['street_name'];
-      $address = sprintf( $format, $address_field['street_number'], $street_name, $address_field['city'], $address_field['state_short'], $address_field['post_code'] );
-      $events[$x]['location']['address'] = $address;
-
-      // Google Map Link
-      $events[$x]['location']['link'] = 'https://www.google.com/maps/search/?api=1&query=' . urlencode( $address_field['street_number'] . ' ' . $street_name . ' ' . $address_field['city'] . ' ' . $address_field['state_short'] . ' ' . $address_field['post_code'] );
-
 
       $x++;
     }
@@ -229,9 +230,6 @@ function rendertemplate( $atts ){
       $data[$datum[0]] = $datum[1];
     }
   }
-
-  //uber_log('🔔 $args = ' . print_r( $args, true ) );
-  //uber_log('🔔 $data = ' . print_r( $data, true ) );
 
   if( is_null( $args['template'] ) ){
     return get_alert(['title' => 'Missing Template', 'description' => 'Please add a template attribute to this shortcode.' ]);
