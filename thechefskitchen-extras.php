@@ -7,7 +7,7 @@
  * Author URI:      https://mwender.com
  * Text Domain:     thechefskitchen-extras
  * Domain Path:     /languages
- * Version:         0.1.0
+ * Version:         0.1.1
  *
  * @package         TCK_Extras
  */
@@ -48,8 +48,9 @@ require_once( TCK_PLUGIN_PATH . 'lib/fns/utilities.php' );
  * @return     array  Array with API Key.
  */
 function thechefskitchen_acf_google_map_api( $api ){
-    $api['key'] = 'AIzaSyCVWgoWYpH178UvVdqMRGLp4HFNut8NwEA';
-    return $api;
+  if( defined( GOOGLE_MAPS_API_KEY ) )
+    $api['key'] = GOOGLE_MAPS_API_KEY;
+  return $api;
 }
 add_filter('acf/fields/google_map/api', 'thechefskitchen_acf_google_map_api');
 

@@ -1,11 +1,11 @@
-# The Chef's Kitchen Extras Extras #
+# The Chef's Kitchen Extras #
 **Contributors:** [TheWebist](https://profiles.wordpress.org/TheWebist)  
 **Donate link:** https://mwender.com/  
 **Tags:** shortcodes  
 **Requires at least:** 5.7  
 **Tested up to:** 5.8.1  
 **Requires PHP:** 7.4  
-**Stable tag:** 0.9.9  
+**Stable tag:** 0.1.1  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -119,6 +119,9 @@ Add `[webinar_registration_link]` to any event post to link to the Webinar Regis
 ```
 
 ## Changelog ##
+
+### 0.1.1 ###
+* Removing Google Maps API key.
 
 ### 0.1.0 ###
 * Initial setup. Porting from the "TKA Extras" plugin.
