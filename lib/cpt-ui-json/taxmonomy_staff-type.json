@@ -1,0 +1,54 @@
+{
+    "staff_type":
+    {
+        "default_term": "",
+        "description": "Used for categorizing staff member custom post-types under employee categories (e.g. Support Staff, Faculty, etc).",
+        "hierarchical": "false",
+        "label": "Staff Types",
+        "labels":
+        {
+            "add_new_item": "",
+            "add_or_remove_items": "",
+            "all_items": "",
+            "back_to_items": "",
+            "choose_from_most_used": "",
+            "edit_item": "",
+            "items_list": "",
+            "items_list_navigation": "",
+            "menu_name": "",
+            "new_item_name": "",
+            "no_terms": "",
+            "not_found": "",
+            "parent_item": "",
+            "parent_item_colon": "",
+            "popular_items": "",
+            "search_items": "",
+            "separate_items_with_commas": "",
+            "update_item": "",
+            "view_item": ""
+        },
+        "meta_box_cb": "",
+        "name": "staff_type",
+        "object_types":
+        [
+            "employee"
+        ],
+        "public": "true",
+        "publicly_queryable": "true",
+        "query_var": "true",
+        "query_var_slug": "",
+        "rest_base": "",
+        "rest_controller_class": "",
+        "rewrite": "true",
+        "rewrite_hierarchical": "0",
+        "rewrite_slug": "",
+        "rewrite_withfront": "1",
+        "show_admin_column": "false",
+        "show_in_menu": "true",
+        "show_in_nav_menus": "false",
+        "show_in_quick_edit": "",
+        "show_in_rest": "true",
+        "show_ui": "true",
+        "singular_label": "Staff Type"
+    }
+}
