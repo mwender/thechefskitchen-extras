@@ -1,4 +1,4 @@
-# The Chef's Kitchen Extras Extras
+# The Chef's Kitchen Extras Extras #
 **Contributors:** [TheWebist](https://profiles.wordpress.org/TheWebist)  
 **Donate link:** https://mwender.com/  
 **Tags:** shortcodes  
@@ -11,11 +11,11 @@
 
 Extras for the The Chef's Kitchen website.
 
-## Description
+## Description ##
 
 This plugin provides extra functionality for The Chef's Kitchen website.
 
-# Elementor Style Button Shortcode
+# Elementor Style Button Shortcode #
 
 Use `[button/]` to render an "Elementor-style" button.
 
@@ -37,7 +37,7 @@ Use `[button/]` to render an "Elementor-style" button.
  */
 ```
 
-# Render Template Shortcode
+# Render Template Shortcode #
 
 ```
 /**
@@ -65,7 +65,7 @@ Use `[button/]` to render an "Elementor-style" button.
  */
 ```
 
-# Sub Pages List
+# Sub Pages List #
 
 Add `[subpage_list/]` to display a list of sub pages.
 
@@ -83,7 +83,7 @@ Add `[subpage_list/]` to display a list of sub pages.
  */
 ```
 
-# Team Member List Shortcode
+# Team Member List Shortcode #
 
 Add `[team_member_list]` to list Team Member CPTs.
 
@@ -102,7 +102,7 @@ Add `[team_member_list]` to list Team Member CPTs.
  */
 ```
 
-# Webinar Registration Link Shortcode
+# Webinar Registration Link Shortcode #
 
 Add `[webinar_registration_link]` to any event post to link to the Webinar Registration page with the event date/time matching the event where you added the shortcode.
 
@@ -118,8 +118,8 @@ Add `[webinar_registration_link]` to any event post to link to the Webinar Regis
  */
 ```
 
-## Changelog
+## Changelog ##
 
-### 0.1.0
+### 0.1.0 ###
 * Initial setup. Porting from the "TKA Extras" plugin.
 * Updating namespaces, constants, etc to reference "The Chef's Kitchen".
