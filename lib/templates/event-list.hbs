@@ -1,7 +1,7 @@
 {{#each events}}
-<div class="row event">
+<div class="row event desktop">
   <div class="col-sm-2">
-    {{#if current_day}}
+    {{#if current_day.display}}
     <div class="current_day">
       <div class="day">{{current_day.day}}</div>
       <div class="date">{{current_day.date}}</div>
@@ -9,8 +9,10 @@
     </div>
     {{/if}}
   </div>
-  <div class="col-sm-2 time">{{start_time}}-{{end_time}}</div>
-  <div class="col-sm-8 details">
+  <div class="col-sm-3 time">
+    {{start_time}}-{{end_time}}
+  </div>
+  <div class="col-sm-7 details">
     <h2>{{{title}}}</h2>
     <p><strong>Vendors:</strong></p>
     <ul>
@@ -18,7 +20,33 @@
       <li>{{{.}}}</li>
     {{/each}}
   </ul>
-   <p><strong>Location:</strong><br/>{{location.name}}<br><a href="{{location.link}}" target="_blank">{{{location.address}}}</a></p>
+   <p><strong>Location:</strong><br/><a href="{{location.link}}" target="_blank">{{location.name}}<br>{{{location.address}}}</a></p>
+  </div>
+</div>
+<div class="event mobile">
+  <div class="row">
+    <div class="col-xs-2">
+      <div class="current_day">
+        <div class="day">{{current_day.day}}</div>
+        <div class="date">{{current_day.date}}</div>
+        <div class="month">{{current_day.month}}</div>
+      </div>
+    </div>
+    <div class="col-xs-10">
+      <h2>{{{title}}}</h2>
+      <div class="time">{{start_time}}-{{end_time}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <p><strong>Vendors:</strong></p>
+      <ul>
+      {{#each food_trucks}}
+        <li>{{{.}}}</li>
+      {{/each}}
+    </ul>
+     <p><strong>Location:</strong><br/><a href="{{location.link}}" target="_blank">{{location.name}}<br>{{{location.address}}}</a></p>
+    </div>
   </div>
 </div>
 {{/each}}

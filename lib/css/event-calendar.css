@@ -1,12 +1,13 @@
   .event{
     margin-bottom: 2em;
-
   }
   .event .time{
     font-family: "Roboto Slab", serif;
+    font-weight: bold;
   }
   .event .time,
-  .event .details{
+  .event .details,
+  .event.mobile{
     border-bottom: 1px solid #e6e7e8;
     padding-bottom: 2em;
   }
@@ -39,3 +40,21 @@
     letter-spacing: 3px;
     font-family: "Roboto Slab", serif;
   }
+.event.mobile{
+  display: none;
+  padding-bottom: 0;
+}
+.event.mobile .row{
+  margin-bottom: 1em;
+}
+.event.mobile .time{
+  border-bottom: none;
+}
+@media screen and (max-width: 879px) {
+    .event.mobile{
+      display: block;
+    }
+    .event.desktop{
+      display: none;
+    }
+}

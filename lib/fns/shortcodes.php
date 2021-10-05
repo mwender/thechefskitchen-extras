@@ -73,16 +73,17 @@ function event_list( $atts ){
 
       $start_date = new \DateTime( get_post_meta( $post->ID, 'start_date', true ) );
       $end_date = new \DateTime( get_post_meta( $post->ID, 'end_date', true ) );
-      //$events[$x]['current_day'] = ( ! $current_day || $current_day != $start_date->format( 'm/d/y' ) )? $start_date->format( 'm/d/y' ) : '' ;
+      $events[$x]['current_day']['fulldate'] = $start_date->format( 'm/d/y' );
+      $events[$x]['current_day']['day'] = $start_date->format( 'D' );
+      $events[$x]['current_day']['date'] = $start_date->format( 'j' );
+      $events[$x]['current_day']['month'] = $start_date->format( 'M' );
       if( ! $current_day || $current_day != $start_date->format( 'm/d/y' ) ){
-        $events[$x]['current_day']['fulldate'] = $start_date->format( 'm/d/y' );
-        $events[$x]['current_day']['day'] = $start_date->format( 'D' );
-        $events[$x]['current_day']['date'] = $start_date->format( 'j' );
-        $events[$x]['current_day']['month'] = $start_date->format( 'M' );
+        $events[$x]['current_day']['display'] = true;
         $current_day = $start_date->format( 'm/d/y' );
       } else {
-        $events[$x]['current_day'] = false;
+        $events[$x]['current_day']['display'] = false;
       }
+
       $events[$x]['start_time'] = $start_date->format( 'ga' );
       $events[$x]['end_time'] = $end_date->format( 'ga' );
 
