@@ -83,25 +83,6 @@ Add `[subpage_list/]` to display a list of sub pages.
  */
 ```
 
-# Team Member List Shortcode #
-
-Add `[team_member_list]` to list Team Member CPTs.
-
-```
-/**
- * Lists Team Member CPTs.
- *
- * @param      array  $atts {
- *   @type  string  $type       Staff Type taxonomy slug.
- *   @type  string  $orderby    Value used to order the query's results. Defaults to `title`.
- *   @type  string  $order      Either ASC or DESC. Defaults to `ASC`.
- *   @type  bool    $linktopage Should we link to the Team Member's page? Defaults to TRUE.
- * }
- *
- * @return     string  HTML for listing Team Member CPTs.
- */
-```
-
 # Webinar Registration Link Shortcode #
 
 Add `[webinar_registration_link]` to any event post to link to the Webinar Registration page with the event date/time matching the event where you added the shortcode.
