@@ -84,7 +84,11 @@ function event_list(){
         $food_trucks = $food_trucks[0];
         $food_truck_list = [];
         foreach( $food_trucks as $food_truck_id ){
-          $food_truck_list[] = [ 'name' => get_the_title( $food_truck_id ), 'short_description' => get_post_meta( $food_truck_id, 'short_description', true ) ];
+          $food_truck_list[] = [
+            'name' => get_the_title( $food_truck_id ),
+            'short_description' => get_post_meta( $food_truck_id, 'short_description', true ),
+            'website' => get_post_meta( $food_truck_id, 'website', true ),
+          ];
         }
         $events[$x]['food_trucks'] = $food_truck_list;
       }

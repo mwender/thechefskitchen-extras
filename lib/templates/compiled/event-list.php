@@ -49,7 +49,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     </p>
     <p class="heading">Food Trucks:</p>
 '.LR::sec($cx, (($inary && isset($in['food_trucks'])) ? $in['food_trucks'] : null), null, $in, true, function($cx, $in) {$inary=is_array($in);return '      <div class="row">
-        <div class="col-xs-5"><strong>'.(($inary && isset($in['name'])) ? $in['name'] : null).'</strong></div>
+        <div class="col-xs-5"><strong>'.((LR::ifvar($cx, (($inary && isset($in['website'])) ? $in['website'] : null), false)) ? '<a href="'.htmlspecialchars((string)(($inary && isset($in['website'])) ? $in['website'] : null), ENT_QUOTES, 'UTF-8').'" target="_blank">' : '').''.(($inary && isset($in['name'])) ? $in['name'] : null).''.((LR::ifvar($cx, (($inary && isset($in['website'])) ? $in['website'] : null), false)) ? '</a>' : '').'</strong></div>
         <div class="col-xs-7">'.htmlspecialchars((string)(($inary && isset($in['short_description'])) ? $in['short_description'] : null), ENT_QUOTES, 'UTF-8').'</div>
       </div>
 ';}).'  </div>

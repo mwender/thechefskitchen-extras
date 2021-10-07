@@ -24,7 +24,7 @@
     <p class="heading">Food Trucks:</p>
     {{#each food_trucks as | truck | }}
       <div class="row">
-        <div class="col-xs-5"><strong>{{{name}}}</strong></div>
+        <div class="col-xs-5"><strong>{{#if website}}<a href="{{website}}" target="_blank">{{/if}}{{{name}}}{{#if website}}</a>{{/if}}</strong></div>
         <div class="col-xs-7">{{short_description}}</div>
       </div>
     {{/each}}
