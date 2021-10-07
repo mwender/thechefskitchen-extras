@@ -37,6 +37,18 @@ Use `[button/]` to render an "Elementor-style" button.
  */
 ```
 
+=== Event List Shortcode ===
+
+Use `[event_list]` to render a responsive Event List/Calendar.
+
+```
+/**
+ * Renders the Event Calendar
+ *
+ * @return     string  HTML and CSS for the Event Calendar.
+ */
+ ```
+
 === Render Template Shortcode ===
 
 ```
@@ -83,23 +95,12 @@ Add `[subpage_list/]` to display a list of sub pages.
  */
 ```
 
-=== Webinar Registration Link Shortcode ===
-
-Add `[webinar_registration_link]` to any event post to link to the Webinar Registration page with the event date/time matching the event where you added the shortcode.
-
-```
-/**
- * Returns a link to the webinar registration page.
- *
- * @param      array  $atts {
- *   @type  string  $registration_link URL to the webinar registration page. Defaults to /webinar-registration/.
- * }
- *
- * @return     string  The webinar link.
- */
-```
-
 == Changelog ==
+
+= 0.3.1 =
+* Removing Team Member List shortcode.
+* Removing Webinar Link shortcode.
+* Documenting `[event_list]` shortcode.
 
 = 0.3.0 =
 * Updating Event Calendar layout.
