@@ -58,7 +58,7 @@ function custom_post_order($query){
   if( is_admin() ){
     if( isset( $query->query_vars['post_type'] ) && $query->query_vars['post_type'] == 'event' ){
       $post_status = get_query_var( 'post_status' );
-      if( 'publish' == $post_status ){
+      if( in_array( $post_status, [ 'publish', 'draft' ]) ){
         $query->set( 'meta_key', 'start_date' );
       } else {
         $query->set( 'meta_query', [
