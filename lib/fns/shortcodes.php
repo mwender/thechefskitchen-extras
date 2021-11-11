@@ -45,6 +45,12 @@ function event_list(){
   $data = [];
   $today = date('Y-m-d');
 
+  $data['no_events'] = get_alert([
+    'title'       => 'More Foodie Events Coming Soon!',
+    'type'        => 'info',
+    'description' => 'We will be adding new events to our calendar soon. Until then, <a href="#get-connected">sign up to be notified</a>.',
+  ]);
+
   $futureposts = get_posts([
     'post_type'       => 'event',
     'posts_per_page'  => -1,

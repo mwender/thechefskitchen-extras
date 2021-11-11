@@ -57,9 +57,20 @@ add_filter( 'manage_food_trucks_posts_columns', __NAMESPACE__ . '\\set_food_truc
 function custom_post_order($query){
   if( is_admin() ){
     if( isset( $query->query_vars['post_type'] ) && $query->query_vars['post_type'] == 'event' ){
+      $post_status = get_query_var( 'post_status' );
+      if( 'publish' == $post_status ){
+        $query->set( 'meta_key', 'start_date' );
+      } else {
+        $query->set( 'meta_query', [
+          [
+            'key'     => 'start_date',
+            'value'   => current_time( 'Y-m-d H:i:s' ),
+            'compare' => '>=',
+            'type'    => 'DATETIME',
+          ]
+        ]);
+      }
       $query->set( 'orderby', 'meta_value' );
-      $query->set( 'meta_key', 'start_date' );
-
       $query_order = $query->get( 'order' );
       $order = ( $query_order )? $query_order : 'ASC' ;
       $query->set( 'order', $order );

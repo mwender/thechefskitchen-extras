@@ -1,6 +1,6 @@
 <?php
 namespace tck\utilities;
-use function tka\templates\{render_template};
+use function tck\templates\{render_template};
 
 /**
  * Returns an HTML alert message
@@ -17,7 +17,7 @@ use function tka\templates\{render_template};
 function get_alert( $atts ){
   $args = shortcode_atts([
    'type'               => 'warning',
-   'title'              => 'Alert Title Goes Here',
+   'title'              => null,
    'description'        => 'Alert description goes here.',
    'css_classes' => null,
   ], $atts );
