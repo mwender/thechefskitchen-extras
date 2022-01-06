@@ -1,6 +1,7 @@
 {{#if events}}
   {{#each events}}
-  <div class="row event desktop">
+  <div class="row event desktop{{#if css_classes}} {{css_classes}}{{/if}}">
+    {{#if cancelled}}<div class="banner cancelled">Cancelled <span>Inclement Weather</span></div>{{/if}}
     <div class="col-sm-2">
       {{#if current_day.display}}
       <div class="current_day">
@@ -31,7 +32,8 @@
       {{/each}}
     </div>
   </div>
-  <div class="event mobile">
+  <div class="event mobile{{#if css_classes}} {{css_classes}}{{/if}}">
+    {{#if cancelled}}<div class="banner cancelled">Cancelled <span>Inclement Weather</span></div>{{/if}}
     <div class="row">
       <div class="col-xs-3">
         <div class="current_day">
@@ -58,7 +60,7 @@
         <p class="heading">Food Trucks:</p>
         {{#each food_trucks as | truck | }}
           <div class="row" style="margin-bottom: .5em;">
-            <div class="col-xs-12"><strong>{{{name}}}</strong>{{#if short_description}}<br>{{short_description}}{{/if}}</div>
+            <div class="col-xs-12"><strong>{{#if website}}<a href="{{website}}" target="_blank">{{/if}}{{{name}}}{{#if website}}</a>{{/if}}</strong>{{#if short_description}}<br>{{short_description}}{{/if}}</div>
           </div>
         {{/each}}
       </div>

@@ -1,0 +1,105 @@
+{
+    "key": "group_615380ee44e75",
+    "title": "Event Options",
+    "fields": [
+        {
+            "key": "field_615380f999cfa",
+            "label": "Start Date",
+            "name": "start_date",
+            "type": "date_time_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "m\/d\/Y g:i a",
+            "return_format": "m\/d\/Y g:i a",
+            "first_day": 0
+        },
+        {
+            "key": "field_6153813799cfb",
+            "label": "End Date",
+            "name": "end_date",
+            "type": "date_time_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "m\/d\/Y g:i a",
+            "return_format": "m\/d\/Y g:i a",
+            "first_day": 0
+        },
+        {
+            "key": "field_6153815299cfc",
+            "label": "Food Trucks",
+            "name": "food_trucks",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "food_trucks"
+            ],
+            "taxonomy": "",
+            "allow_null": 1,
+            "multiple": 1,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
+            "key": "field_615386e98fcf2",
+            "label": "Location",
+            "name": "location",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "location"
+            ],
+            "taxonomy": "",
+            "allow_null": 1,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "event"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1641485251
+}

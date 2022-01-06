@@ -74,6 +74,18 @@ function event_list(){
 
       $events[$x]['location']['thumbnail'] = ( has_post_thumbnail( $location_id ) )? get_the_post_thumbnail_url( $location_id, 'full' ) : false ;
 
+      // Get all Tags
+      $tags = get_the_terms( $post, 'post_tag' );
+      $css_classes = [];
+      if( $tags ){
+        foreach( $tags as $tag ){
+          $css_classes[] = $tag->slug;
+          if( 'cancelled' == $tag->slug )
+            $events[$x]['cancelled'] = true;
+        }
+      }
+      $events[$x]['css_classes'] = implode( ' ', $css_classes );
+
       // Build the address
       $address_field = get_field( 'address', $location_id );
       $format = '<span class="segment-street_number">%s</span> <span class="segment-street_name_short">%s</span><br><span class="segment-city">%s</span>, <span class="segment-state_short">%s</span> <span class="segment-post_code">%s</span>';

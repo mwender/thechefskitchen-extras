@@ -30,7 +30,8 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     );
     
     $inary=is_array($in);
-    return ''.((LR::ifvar($cx, (($inary && isset($in['events'])) ? $in['events'] : null), false)) ? ''.LR::sec($cx, (($inary && isset($in['events'])) ? $in['events'] : null), null, $in, true, function($cx, $in) {$inary=is_array($in);return '  <div class="row event desktop">
+    return ''.((LR::ifvar($cx, (($inary && isset($in['events'])) ? $in['events'] : null), false)) ? ''.LR::sec($cx, (($inary && isset($in['events'])) ? $in['events'] : null), null, $in, true, function($cx, $in) {$inary=is_array($in);return '  <div class="row event desktop'.((LR::ifvar($cx, (($inary && isset($in['css_classes'])) ? $in['css_classes'] : null), false)) ? ' '.htmlspecialchars((string)(($inary && isset($in['css_classes'])) ? $in['css_classes'] : null), ENT_QUOTES, 'UTF-8').'' : '').'">
+    '.((LR::ifvar($cx, (($inary && isset($in['cancelled'])) ? $in['cancelled'] : null), false)) ? '<div class="banner cancelled">Cancelled <span>Inclement Weather</span></div>' : '').'
     <div class="col-sm-2">
 '.((LR::ifvar($cx, ((isset($in['current_day']) && is_array($in['current_day']) && isset($in['current_day']['display'])) ? $in['current_day']['display'] : null), false)) ? '      <div class="current_day">
         <div class="day">'.htmlspecialchars((string)((isset($in['current_day']) && is_array($in['current_day']) && isset($in['current_day']['day'])) ? $in['current_day']['day'] : null), ENT_QUOTES, 'UTF-8').'</div>
@@ -54,7 +55,8 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
         </div>
 ';}).'    </div>
   </div>
-  <div class="event mobile">
+  <div class="event mobile'.((LR::ifvar($cx, (($inary && isset($in['css_classes'])) ? $in['css_classes'] : null), false)) ? ' '.htmlspecialchars((string)(($inary && isset($in['css_classes'])) ? $in['css_classes'] : null), ENT_QUOTES, 'UTF-8').'' : '').'">
+    '.((LR::ifvar($cx, (($inary && isset($in['cancelled'])) ? $in['cancelled'] : null), false)) ? '<div class="banner cancelled">Cancelled <span>Inclement Weather</span></div>' : '').'
     <div class="row">
       <div class="col-xs-3">
         <div class="current_day">
@@ -77,7 +79,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
       <div class="col-xs-12">
         <p class="heading">Food Trucks:</p>
 '.LR::sec($cx, (($inary && isset($in['food_trucks'])) ? $in['food_trucks'] : null), null, $in, true, function($cx, $in) {$inary=is_array($in);return '          <div class="row" style="margin-bottom: .5em;">
-            <div class="col-xs-12"><strong>'.(($inary && isset($in['name'])) ? $in['name'] : null).'</strong>'.((LR::ifvar($cx, (($inary && isset($in['short_description'])) ? $in['short_description'] : null), false)) ? '<br>'.htmlspecialchars((string)(($inary && isset($in['short_description'])) ? $in['short_description'] : null), ENT_QUOTES, 'UTF-8').'' : '').'</div>
+            <div class="col-xs-12"><strong>'.((LR::ifvar($cx, (($inary && isset($in['website'])) ? $in['website'] : null), false)) ? '<a href="'.htmlspecialchars((string)(($inary && isset($in['website'])) ? $in['website'] : null), ENT_QUOTES, 'UTF-8').'" target="_blank">' : '').''.(($inary && isset($in['name'])) ? $in['name'] : null).''.((LR::ifvar($cx, (($inary && isset($in['website'])) ? $in['website'] : null), false)) ? '</a>' : '').'</strong>'.((LR::ifvar($cx, (($inary && isset($in['short_description'])) ? $in['short_description'] : null), false)) ? '<br>'.htmlspecialchars((string)(($inary && isset($in['short_description'])) ? $in['short_description'] : null), ENT_QUOTES, 'UTF-8').'' : '').'</div>
           </div>
 ';}).'      </div>
     </div>

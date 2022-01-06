@@ -5,7 +5,7 @@
 **Requires at least:** 5.7  
 **Tested up to:** 5.8.1  
 **Requires PHP:** 7.4  
-**Stable tag:** 0.5.1  
+**Stable tag:** 0.6.0  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -96,6 +96,10 @@ Add `[subpage_list/]` to display a list of sub pages.
 ```
 
 ## Changelog ##
+
+### 0.6.0 ###
+* Tags are now included as CSS class names in the parent element for events.
+* Adding a tag of `cancelled` to an event will display a "Cancelled - Inclement Weather" banner on the event.
 
 ### 0.5.1 ###
 * Adding `draft` post_status as a possible option for showing "all" events in admin Event listing.
