@@ -5,7 +5,7 @@ Tags: shortcodes
 Requires at least: 5.7
 Tested up to: 5.8.1
 Requires PHP: 7.4
-Stable tag: 0.6.1
+Stable tag: 0.7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,10 @@ Add `[subpage_list/]` to display a list of sub pages.
 ```
 
 == Changelog ==
+
+= 0.7.0 =
+* Adding "tag" attribute to `[event_list]` shortcode.
+* Automatically saving Event titles in `<date>, <time> at <location>` format/
 
 = 0.6.1 =
 * Bottom margin for Food Truck entries on desktop.
