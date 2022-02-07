@@ -40,7 +40,10 @@ add_shortcode( 'button', __NAMESPACE__ . '\\button' );
  *
  * @return     string  HTML and CSS for the Event Calendar.
  */
-function event_list(){
+function event_list( $atts ){
+  $args = shortcode_atts([
+    'tag' => null,
+  ], $atts );
 
   $data = [];
   $today = date('Y-m-d');
@@ -51,7 +54,7 @@ function event_list(){
     'description' => 'We will be adding new events to our calendar soon. Until then, <a href="#get-connected">sign up to be notified</a>.',
   ]);
 
-  $futureposts = get_posts([
+  $get_posts_args = [
     'post_type'       => 'event',
     'posts_per_page'  => -1,
     'meta_key'        => 'start_date',
@@ -61,7 +64,12 @@ function event_list(){
     'meta_compare'    => '>=',
     'value'           => $today,
     'type'            => 'DATE',
-  ]);
+  ];
+  if( ! is_null( $args['tag'] ) ){
+    $get_posts_args['tag'] = $args['tag'];
+  }
+
+  $futureposts = get_posts( $get_posts_args );
   if( $futureposts ){
     $current_day = false;
     $x = 0;
