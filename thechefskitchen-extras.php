@@ -7,7 +7,7 @@
  * Author URI:      https://mwender.com
  * Text Domain:     thechefskitchen-extras
  * Domain Path:     /languages
- * Version:         0.6.1
+ * Version:         0.7.0
  *
  * @package         TCK_Extras
  */
@@ -35,6 +35,7 @@ if( file_exists( TCK_PLUGIN_PATH . 'vendor/autoload.php' ) ){
 require_once( TCK_PLUGIN_PATH . 'lib/fns/acf-json-save-point.php' );
 require_once( TCK_PLUGIN_PATH . 'lib/fns/admin-custom-columns.php' );
 require_once( TCK_PLUGIN_PATH . 'lib/fns/enqueues.php' );
+require_once( TCK_PLUGIN_PATH . 'lib/fns/events.php' );
 require_once( TCK_PLUGIN_PATH . 'lib/fns/search.php' );
 require_once( TCK_PLUGIN_PATH . 'lib/fns/shortcodes.php' );
 require_once( TCK_PLUGIN_PATH . 'lib/fns/templates.php' );

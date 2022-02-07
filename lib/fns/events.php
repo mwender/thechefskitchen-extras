@@ -1,0 +1,38 @@
+<?php
+
+namespace tck\events;
+
+function update_event_title( $value, $post_id, $field ){
+  $start_date = get_field( 'start_date', $post_id );
+  $start_date_object = new \DateTime( $start_date );
+
+  $end_date = get_field( 'end_date', $post_id );
+  $end_date_object = new \DateTime( $end_date );
+
+  $location = get_field( 'location', $post_id );
+  $location_name = $location->post_title;
+
+  $start_am_pm = $start_date_object->format('a');
+  $end_am_pm = $end_date_object->format('a');
+
+  $times = ( $start_am_pm == $end_am_pm )? $start_date_object->format( 'g' ) . ' - ' . $end_date_object->format( 'g' ) . $end_am_pm : $start_date_object->format( 'g' ) . $start_am_pm . ' - ' . $end_date_object->format( 'g' ) . $end_am_pm;
+
+  $title = $start_date_object->format( 'D, M j, Y' ) . ', ' . $times . ' at '. $location_name;
+
+  $slug = sanitize_title( $title );
+
+  $postdata = array(
+    'ID'          => $post_id,
+    'post_title'  => $title,
+    'post_type'   => 'event',
+    'post_name'   => $slug,
+  );
+
+  wp_update_post( $postdata );
+
+  return $value;
+}
+
+add_filter('acf/update_value/name=start_date', __NAMESPACE__ . '\\update_event_title', 10, 3);
+add_filter('acf/update_value/name=end_date', __NAMESPACE__ . '\\update_event_title', 10, 3);
+add_filter('acf/update_value/name=location', __NAMESPACE__ . '\\update_event_title', 10, 3);
