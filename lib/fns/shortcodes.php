@@ -45,6 +45,8 @@ function event_list( $atts ){
     'tag' => null,
   ], $atts );
 
+  wp_enqueue_script( 'elementor-tab-enhancers' );
+
   $data = [];
   $today = date('Y-m-d');
 
