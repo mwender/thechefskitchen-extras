@@ -7,6 +7,8 @@ function enqueue_scripts(){
   $css_filename = TCK_PLUGIN_PATH . 'lib/' . TCK_CSS_DIR . '/main.css';
   if( file_exists( $css_filename ) )
     wp_enqueue_style( 'tka', TCK_PLUGIN_URL . 'lib/' . TCK_CSS_DIR . '/main.css', ['hello-elementor','elementor-frontend'], filemtime( $css_filename ) );
+
+  wp_register_script( 'elementor-tab-enhancers', TCK_PLUGIN_URL . 'lib/js/elementor-tab-enhancers.js', null, filemtime( TCK_PLUGIN_PATH . 'lib/js/elementor-tab-enhancers.js'), true );
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_scripts' );
 
