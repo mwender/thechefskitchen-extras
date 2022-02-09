@@ -4,23 +4,14 @@
   "main": "Gruntfile.js",
   "author": "TheWebist",
   "scripts": {
-    "build-task:scss-compile": "node-sass-chokidar --source-map true lib/scss/ -o lib/css",
-    "build-task:autoprefixer": "postcss lib/css/*.css --use autoprefixer -d lib/css",
-    "development:browsersync": "browser-sync start --proxy 'https://thechefsworkshop.local' --files 'lib/css/*.css' 'lib/html/*.*' 'lib/fns/*.*' 'lib/js/*.js'",
-    "development:build": "npm-run-all -p build-task:*",
-    "development:watch": "chokidar 'lib/scss/**/*.scss' -c 'npm run development:build'",
-    "production:scss-compile": "node-sass-chokidar lib/scss/ -o lib/dist --output-style compressed ",
-    "production:autoprefixer": "postcss lib/dist/*.css --no-map --use autoprefixer -d lib/dist",
-    "dev": "npm-run-all -p development:*",
-    "prod": "npm-run-all -p production:*",
-    "devbuild": "npm-run-all -p build-task:*"
+    "sassdev": "sass lib/scss/main.scss lib/css/main.css --style=expanded --embed-sources",
+    "sassprod": "sass lib/scss/main.scss lib/dist/main.css --style=compressed --no-source-map"
   },
   "devDependencies": {},
   "dependencies": {
-    "autoprefixer": "^10.3.7",
-    "chokidar-cli": "^3.0.0",
     "grunt": "^1.4.1",
     "grunt-wp-i18n": "^1.0.3",
-    "grunt-wp-readme-to-markdown": "^2.0.1"
+    "grunt-wp-readme-to-markdown": "^2.0.1",
+    "sass": "^1.49.7"
   }
 }
