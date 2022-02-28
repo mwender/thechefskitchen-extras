@@ -1140,13 +1140,19 @@
   max-width: 24%;
   margin: 5px;
 }
+.events-list-two .event.clinton {
+  border-color: #80b8b9;
+}
 .events-list-two .event .date {
   background-color: #ce3a0d;
   color: #fff;
   font-family: "Roboto Slab", serif;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: bold;
+}
+.events-list-two .event.clinton .date {
+  background-color: #80b8b9;
 }
 .events-list-two .event .time {
   padding: 0.25em;

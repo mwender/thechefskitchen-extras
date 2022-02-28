@@ -144,6 +144,7 @@ function event_list( $atts ){
     $data['events'] = $events;
   }
   $style = '';
+  uber_log( '🔔 $data = ' . print_r( $data, true ) );
 
   $template = render_template( $args['template'], $data );
   return $style.$template;
