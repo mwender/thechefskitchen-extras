@@ -7,21 +7,21 @@
  * Author URI:      https://mwender.com
  * Text Domain:     thechefskitchen-extras
  * Domain Path:     /languages
- * Version:         0.8.0
+ * Version:         0.9.0
  *
- * @package         TCK_Extras
+ * @package         TCW_Extras
  */
 
 // Your code starts here.
 $css_dir = ( stristr( site_url(), '.local' ) || SCRIPT_DEBUG )? 'css' : 'dist' ;
-define( 'TCK_CSS_DIR', $css_dir );
-define( 'TCK_DEV_ENV', stristr( site_url(), '.local' ) );
-define( 'TCK_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-define( 'TCK_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'TCW_CSS_DIR', $css_dir );
+define( 'TCW_DEV_ENV', stristr( site_url(), '.local' ) );
+define( 'TCW_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+define( 'TCW_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 // Load Composer dependencies
-if( file_exists( TCK_PLUGIN_PATH . 'vendor/autoload.php' ) ){
-  require_once TCK_PLUGIN_PATH . 'vendor/autoload.php';
+if( file_exists( TCW_PLUGIN_PATH . 'vendor/autoload.php' ) ){
+  require_once TCW_PLUGIN_PATH . 'vendor/autoload.php';
 } else {
   add_action( 'admin_notices', function(){
     $class = 'notice notice-error';
@@ -32,14 +32,14 @@ if( file_exists( TCK_PLUGIN_PATH . 'vendor/autoload.php' ) ){
 
 
 // Load required files
-require_once( TCK_PLUGIN_PATH . 'lib/fns/acf-json-save-point.php' );
-require_once( TCK_PLUGIN_PATH . 'lib/fns/admin-custom-columns.php' );
-require_once( TCK_PLUGIN_PATH . 'lib/fns/enqueues.php' );
-require_once( TCK_PLUGIN_PATH . 'lib/fns/events.php' );
-require_once( TCK_PLUGIN_PATH . 'lib/fns/search.php' );
-require_once( TCK_PLUGIN_PATH . 'lib/fns/shortcodes.php' );
-require_once( TCK_PLUGIN_PATH . 'lib/fns/templates.php' );
-require_once( TCK_PLUGIN_PATH . 'lib/fns/utilities.php' );
+require_once( TCW_PLUGIN_PATH . 'lib/fns/acf-json-save-point.php' );
+require_once( TCW_PLUGIN_PATH . 'lib/fns/admin-custom-columns.php' );
+require_once( TCW_PLUGIN_PATH . 'lib/fns/enqueues.php' );
+require_once( TCW_PLUGIN_PATH . 'lib/fns/events.php' );
+require_once( TCW_PLUGIN_PATH . 'lib/fns/search.php' );
+require_once( TCW_PLUGIN_PATH . 'lib/fns/shortcodes.php' );
+require_once( TCW_PLUGIN_PATH . 'lib/fns/templates.php' );
+require_once( TCW_PLUGIN_PATH . 'lib/fns/utilities.php' );
 
 /**
  * Google Maps API Key

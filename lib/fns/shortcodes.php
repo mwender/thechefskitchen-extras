@@ -1,7 +1,7 @@
 <?php
-namespace tck\shortcodes;
-use function tck\utilities\{get_alert,posts_orderby_lastname};
-use function tck\templates\{render_template};
+namespace tcw\shortcodes;
+use function tcw\utilities\{get_alert,posts_orderby_lastname};
+use function tcw\templates\{render_template};
 
 /**
  * Renders an Elementor button.
@@ -42,7 +42,8 @@ add_shortcode( 'button', __NAMESPACE__ . '\\button' );
  */
 function event_list( $atts ){
   $args = shortcode_atts([
-    'tag' => null,
+    'tag'       => null,
+    'template'  => 'event-list-01',
   ], $atts );
 
   wp_enqueue_script( 'elementor-tab-enhancers' );
@@ -116,6 +117,7 @@ function event_list( $atts ){
             'name' => get_the_title( $food_truck_id ),
             'short_description' => get_post_meta( $food_truck_id, 'short_description', true ),
             'website' => get_post_meta( $food_truck_id, 'website', true ),
+            'thumbnail' => get_the_post_thumbnail_url( $food_truck_id, 'full' ),
           ];
         }
         $events[$x]['food_trucks'] = $food_truck_list;
@@ -141,10 +143,9 @@ function event_list( $atts ){
     }
     $data['events'] = $events;
   }
-  $css = file_get_contents( TCK_PLUGIN_PATH . 'lib/css/event-calendar.css' );
-  $style = '<style>' . $css . '</style>';
+  $style = '';
 
-  $template = render_template( 'event-list', $data );
+  $template = render_template( $args['template'], $data );
   return $style.$template;
 }
 add_shortcode( 'event_list', __NAMESPACE__ . '\\event_list' );

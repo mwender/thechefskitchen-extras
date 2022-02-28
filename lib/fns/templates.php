@@ -1,5 +1,6 @@
 <?php
-namespace tck\templates;
+namespace tcw\templates;
+use function tcw\utilities\{get_alert};
 
 function render_template( $filename = '', $data = [] ){
   if( empty( $filename ) )
@@ -15,8 +16,8 @@ function render_template( $filename = '', $data = [] ){
   $theme_template = \trailingslashit( $theme_path ) . 'tka-templates/' . $filename . '.hbs';
   $theme_template_compiled = \trailingslashit( $theme_path ) . 'tka-templates/compiled/' . $filename . '.php';
 
-  $plugin_template = TCK_PLUGIN_PATH . 'lib/templates/' . $filename . '.hbs';
-  $plugin_template_compiled = TCK_PLUGIN_PATH . 'lib/templates/compiled/' . $filename . '.php';
+  $plugin_template = TCW_PLUGIN_PATH . 'lib/templates/' . $filename . '.hbs';
+  $plugin_template_compiled = TCW_PLUGIN_PATH . 'lib/templates/compiled/' . $filename . '.php';
 
   if( file_exists( $theme_template ) ){
     if( ! file_exists( $theme_template_compiled ) ){
@@ -37,7 +38,8 @@ function render_template( $filename = '', $data = [] ){
     $template = $plugin_template;
     $template_compiled = $plugin_template_compiled;
   } else if( ! file_exists( $plugin_template ) ){
-    return false;
+    return get_alert( [ 'title' => 'File not found!', 'description' => 'I could not find <code>' . $filename . '</code>.' ] );
+    //return false;
   }
 
   $template = [

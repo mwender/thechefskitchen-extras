@@ -1,6 +1,6 @@
 <?php
-namespace tck\utilities;
-use function tck\templates\{render_template};
+namespace tcw\utilities;
+use function tcw\templates\{render_template};
 
 /**
  * Returns an HTML alert message

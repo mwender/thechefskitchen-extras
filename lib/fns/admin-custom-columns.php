@@ -1,6 +1,6 @@
 <?php
 
-namespace tck\customcolumns;
+namespace tcw\customcolumns;
 
 /**
  * Adds columns to the Event CPT
@@ -10,18 +10,18 @@ namespace tck\customcolumns;
  * @return     array  Filtered $columns array
  */
 function set_event_edit_columns($columns) {
-  $columns['event_date']        = __( 'Event Date', 'tck' );
-  $columns['food_trucks'] = __( 'Food Trucks', 'tck' );
-  $columns['location']    = __( 'Location', 'tck' );
+  $columns['event_date']        = __( 'Event Date', 'tcw' );
+  $columns['food_trucks'] = __( 'Food Trucks', 'tcw' );
+  $columns['location']    = __( 'Location', 'tcw' );
 
   // Re-order columns
   $columns = [
-    'cb' => $columns['cb'],
-    'title' => $columns['title'],
-    'event_date' => $columns['event_date'],
+    'cb'          => $columns['cb'],
+    'title'       => $columns['title'],
+    'event_date'  => $columns['event_date'],
     'food_trucks' => $columns['food_trucks'],
-    'location' => $columns['location'],
-    'tags' => $columns['tags'],
+    'location'    => $columns['location'],
+    'tags'        => $columns['tags'],
   ];
   return $columns;
 }
@@ -35,15 +35,17 @@ add_filter( 'manage_event_posts_columns', __NAMESPACE__ . '\\set_event_edit_colu
  * @return     array  Filtered $columns array
  */
 function set_food_trucks_edit_columns($columns) {
-  $columns['short_description'] = __( 'Short Description', 'tck' );
+  $columns['thumbnail'] = __( 'Thumbnail', 'tcw' );
+  $columns['short_description'] = __( 'Short Description', 'tcw' );
   uber_log('$columns = ' . print_r( $columns, true ) );
 
   // Re-order columns
   $columns = [
-    'cb' => $columns['cb'],
-    'title' => $columns['title'],
+    'cb'                => $columns['cb'],
+    'thumbnail'         => $columns['thumbnail'],
+    'title'             => $columns['title'],
     'short_description' => $columns['short_description'],
-    'date' => $columns['date'],
+    'date'              => $columns['date'],
   ];
   return $columns;
 }
@@ -140,6 +142,23 @@ function custom_food_trucks_column( $column, $post_id ){
     case 'short_description':
       echo get_post_meta( $post_id, 'short_description', true );
       break;
+
+    case 'thumbnail':
+      if( has_post_thumbnail( $post_id ) ){
+        the_post_thumbnail( 'thumbnail', [ 'style' => 'width: 64px; height: 64px;', 'width' => '32', 'height' => '32' ] );
+      }
+      break;
   }
 }
 add_action( 'manage_food_trucks_posts_custom_column', __NAMESPACE__ . '\\custom_food_trucks_column', 10, 2 );
+
+function food_trucks_admin_css(){
+?>
+<style>
+  .column-thumbnail{width: 64px; white-space: nowrap;}
+  .column-title{width: 20%; max-width: 200px;}
+  .column-short_description{width: 60%;}
+</style>
+<?php
+}
+add_action( 'admin_head', __NAMESPACE__ . '\\food_trucks_admin_css' );

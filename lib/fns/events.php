@@ -1,7 +1,16 @@
 <?php
 
-namespace tck\events;
+namespace tcw\events;
 
+/**
+ * Updates an event's title using the values for the start_date, end_date, and location
+ *
+ * @param      mixed  $value    The value
+ * @param      int    $post_id  The post identifier
+ * @param      object $field    The field
+ *
+ * @return     mixed  The value of the field.
+ */
 function update_event_title( $value, $post_id, $field ){
   $start_date = get_field( 'start_date', $post_id );
   $start_date_object = new \DateTime( $start_date );
@@ -32,7 +41,6 @@ function update_event_title( $value, $post_id, $field ){
 
   return $value;
 }
-
 add_filter('acf/update_value/name=start_date', __NAMESPACE__ . '\\update_event_title', 10, 3);
 add_filter('acf/update_value/name=end_date', __NAMESPACE__ . '\\update_event_title', 10, 3);
 add_filter('acf/update_value/name=location', __NAMESPACE__ . '\\update_event_title', 10, 3);
