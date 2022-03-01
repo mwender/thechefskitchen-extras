@@ -1,0 +1,65 @@
+{
+    "key": "group_6153830a125cf",
+    "title": "Location Options",
+    "fields": [
+        {
+            "key": "field_61538313d0662",
+            "label": "Address",
+            "name": "address",
+            "type": "google_map",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "center_lat": "35.965945",
+            "center_lng": "-83.934011",
+            "zoom": 10,
+            "height": ""
+        },
+        {
+            "key": "field_621d5499ac2ed",
+            "label": "Location Tag",
+            "name": "location_tag",
+            "type": "taxonomy",
+            "instructions": "Events tagged with this tag will show for this location.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "post_tag",
+            "field_type": "select",
+            "allow_null": 0,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "location"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1646153780
+}

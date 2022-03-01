@@ -41,10 +41,19 @@ add_shortcode( 'button', __NAMESPACE__ . '\\button' );
  * @return     string  HTML and CSS for the Event Calendar.
  */
 function event_list( $atts ){
+  global $post;
+
   $args = shortcode_atts([
     'tag'       => null,
     'template'  => 'event-list-01',
+    'tag_id'    => null,
   ], $atts );
+
+  if( 'location' == get_post_type( $post ) ){
+    $location_tag_id = get_post_meta( $post->ID, 'location_tag', true );
+    if( $location_tag_id && is_numeric( $location_tag_id ) )
+      $args['tag_id'] = $location_tag_id;
+  }
 
   wp_enqueue_script( 'elementor-tab-enhancers' );
 
@@ -68,9 +77,11 @@ function event_list( $atts ){
     'value'           => $today,
     'type'            => 'DATE',
   ];
-  if( ! is_null( $args['tag'] ) ){
+  if( ! is_null( $args['tag'] ) )
     $get_posts_args['tag'] = $args['tag'];
-  }
+
+  if( ! is_null( $args['tag_id'] ) )
+    $get_posts_args['tag_id'] = $args['tag_id'];
 
   $futureposts = get_posts( $get_posts_args );
   if( $futureposts ){
@@ -144,7 +155,6 @@ function event_list( $atts ){
     $data['events'] = $events;
   }
   $style = '';
-  uber_log( '🔔 $data = ' . print_r( $data, true ) );
 
   $template = render_template( $args['template'], $data );
   return $style.$template;
