@@ -3,6 +3,25 @@
     "title": "Location Options",
     "fields": [
         {
+            "key": "field_621e5a660823a",
+            "label": "Alternate Heading",
+            "name": "alternate_heading",
+            "type": "text",
+            "instructions": "Replace the main heading on the Location's landing page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_61538313d0662",
             "label": "Address",
             "name": "address",
@@ -61,5 +80,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1646153780
+    "modified": 1646156709
 }

@@ -4,6 +4,22 @@ use function tcw\utilities\{get_alert,posts_orderby_lastname};
 use function tcw\templates\{render_template};
 
 /**
+ * Returns the "Alternate Heading" if one exists.
+ *
+ * @return     string  The alternate heading.
+ */
+function get_alt_heading(){
+  global $post;
+  $alternate_heading = get_post_meta( $post->ID, 'alternate_heading', true );
+
+  if( $alternate_heading )
+    return $alternate_heading;
+
+  return get_the_title( $post );
+}
+add_shortcode( 'altheading', __NAMESPACE__ . 'get_alt_heading' );
+
+/**
  * Renders an Elementor button.
  *
  * @param      array  $atts {
