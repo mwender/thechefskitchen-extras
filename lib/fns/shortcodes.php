@@ -17,7 +17,7 @@ function get_alt_heading(){
 
   return get_the_title( $post );
 }
-add_shortcode( 'altheading', __NAMESPACE__ . 'get_alt_heading' );
+add_shortcode( 'altheading', __NAMESPACE__ . '\\get_alt_heading' );
 
 /**
  * Renders an Elementor button.

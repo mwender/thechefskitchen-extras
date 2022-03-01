@@ -5,7 +5,7 @@ Tags: shortcodes
 Requires at least: 5.7
 Tested up to: 5.9.1
 Requires PHP: 7.4
-Stable tag: 0.9.3
+Stable tag: 0.9.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,9 @@ Add `[subpage_list/]` to display a list of sub pages.
 ```
 
 == Changelog ==
+
+= 0.9.4 =
+* BUGFIX: Adding `\\` to properly call `get_alt_heading()` inside NAMESPACE.
 
 = 0.9.3 =
 * Adding `[altheading]` shortcode for retreiving a post's "Alternate Heading" custom field.
