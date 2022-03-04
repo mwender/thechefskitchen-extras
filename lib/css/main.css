@@ -1133,13 +1133,15 @@
 
 /* Events */
 .events-list-two .event {
-  border: 3px solid #ce3a0d;
-  padding: 0;
-  border-radius: 10px;
-  /*max-width: 24%;*/
-  margin: 5px;
+  display: flex;
+  align-items: stretch;
 }
-.events-list-two .event.clinton {
+.events-list-two .event .border {
+  margin: 5px;
+  border: 3px solid #ce3a0d;
+  border-radius: 10px;
+}
+.events-list-two .event.clinton .border {
   border-color: #80b8b9;
 }
 .events-list-two .event .date {

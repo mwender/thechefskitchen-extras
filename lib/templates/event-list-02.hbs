@@ -2,27 +2,18 @@
   <div class="row events-list-two">
   {{#each events}}
     <div class="col-sm-3 event{{#if css_classes}} {{css_classes}}{{/if}}">
-      {{#if cancelled}}<div class="banner cancelled">Cancelled <span>Inclement Weather</span></div>{{/if}}
-      <div class="date">{{current_day.fulldate}}</div>
-      <!--<p class="time">{{start_time}}-{{end_time}}</p>
-      <div class="location">
-        <p><a href="{{location.link}}" target="_blank">
-        {{#if location.thumbnail}}
-          <img src="{{location.thumbnail}}" style="max-width: 200px; height: auto;" />
-        {{else}}
-          {{location.name}}
-        {{/if}}
-        <br>{{{location.address}}}</a>
-        </p>
-      </div>-->
-      <div class="foodtrucks">
-        {{#each food_trucks as | truck | }}
-          <div class="row foodtruck">
-            {{#if website}}<a href="{{website}}" target="_blank">{{/if}}<img src="{{thumbnail}}" alt="{{name}}" />{{#if website}}</a>{{/if}}
-          </div>
-        {{/each}}
-      </div>
-    </div>
+      <div class="border">
+        {{#if cancelled}}<div class="banner cancelled">Cancelled <span>Inclement Weather</span></div>{{/if}}
+        <div class="date">{{current_day.fulldate}}</div>
+        <div class="foodtrucks">
+          {{#each food_trucks as | truck | }}
+            <div class="row foodtruck">
+              {{#if website}}<a href="{{website}}" target="_blank">{{/if}}<img src="{{thumbnail}}" alt="{{name}}" />{{#if website}}</a>{{/if}}
+            </div>
+          {{/each}}
+        </div><!-- .foodtrucks -->
+      </div><!-- .border -->
+    </div><!-- .col-sm-3.event -->
   {{/each}}
   </div>
 {{else}}
