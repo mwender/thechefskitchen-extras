@@ -5,7 +5,7 @@ Tags: shortcodes
 Requires at least: 5.7
 Tested up to: 5.9.1
 Requires PHP: 7.4
-Stable tag: 0.9.6
+Stable tag: 0.9.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,9 @@ Add `[subpage_list/]` to display a list of sub pages.
 ```
 
 == Changelog ==
+
+= 0.9.8 =
+* BUGFIX: Removing `is_int` check on `limit` option for `[event_list]` shortcode.
 
 = 0.9.7 =
 * Adding `limit` option for `[event_list]` shortcode.

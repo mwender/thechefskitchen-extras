@@ -72,9 +72,6 @@ function event_list( $atts ){
       $args['tag_id'] = $location_tag_id;
   }
 
-  if( ! is_int( $args['limit'] ) )
-    $args['limit'] = -1;
-
   wp_enqueue_script( 'elementor-tab-enhancers' );
 
   $data = [];
