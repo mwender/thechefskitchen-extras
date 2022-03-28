@@ -172,7 +172,7 @@ function event_list( $atts ){
     $data['events'] = $events;
   }
   $style = '';
-
+  wp_reset_postdata();
   $template = render_template( $args['template'], $data );
   return $style.$template;
 }
