@@ -60,6 +60,7 @@ function event_list( $atts ){
   global $post;
 
   $args = shortcode_atts([
+    'limit'     => -1,
     'tag'       => null,
     'template'  => 'event-list-01',
     'tag_id'    => null,
@@ -70,6 +71,9 @@ function event_list( $atts ){
     if( $location_tag_id && is_numeric( $location_tag_id ) )
       $args['tag_id'] = $location_tag_id;
   }
+
+  if( ! is_int( $args['limit'] ) )
+    $args['limit'] = -1;
 
   wp_enqueue_script( 'elementor-tab-enhancers' );
 
@@ -84,7 +88,7 @@ function event_list( $atts ){
 
   $get_posts_args = [
     'post_type'       => 'event',
-    'posts_per_page'  => -1,
+    'posts_per_page'  => $args['limit'],
     'meta_key'        => 'start_date',
     'meta_value'      => date('Y-m-d'),
     'orderby'         => 'meta_value',

@@ -97,6 +97,9 @@ Add `[subpage_list/]` to display a list of sub pages.
 
 ## Changelog ##
 
+### 0.9.7 ###
+* Adding `limit` option for `[event_list]` shortcode.
+
 ### 0.9.6 ###
 * Setting `.event` content to full height of columns.
 
