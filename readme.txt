@@ -5,7 +5,7 @@ Tags: shortcodes
 Requires at least: 5.7
 Tested up to: 5.9.1
 Requires PHP: 7.4
-Stable tag: 0.9.9
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,9 @@ Add `[subpage_list/]` to display a list of sub pages.
 ```
 
 == Changelog ==
+
+= 1.0.0 =
+* Adding "Cancelled" banner option to `.event-list-two` layout for events.
 
 = 0.9.9 =
 * BUGFIX: Running `wp_reset_postdata()` inside `[event_list]`.
