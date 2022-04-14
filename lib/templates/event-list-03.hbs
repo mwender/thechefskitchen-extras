@@ -1,0 +1,21 @@
+{{#if events}}
+  <div class="row events-list-three">
+  {{#each events}}
+    <div class="col-sm-12 event{{#if css_classes}} {{css_classes}}{{/if}}">
+      <div class="border">
+        {{#if cancelled}}<div class="banner cancelled">Cancelled <span>Inclement Weather</span></div>{{/if}}
+        <div class="date">{{current_day.fulldate}}</div>
+        <div class="row foodtrucks center-sm">
+          {{#each food_trucks as | truck | }}
+            <div class="row {{../foodtruck_col_class}} foodtruck">
+              {{#if website}}<a href="{{website}}" target="_blank">{{/if}}<img src="{{thumbnail}}" alt="{{name}}" />{{#if website}}</a>{{/if}}
+            </div>
+          {{/each}}
+        </div><!-- .foodtrucks -->
+      </div><!-- .border -->
+    </div><!-- .col-sm-3.event -->
+  {{/each}}
+  </div>
+{{else}}
+  {{{no_events}}}  
+{{/if}}

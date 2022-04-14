@@ -149,6 +149,13 @@ function event_list( $atts ){
           ];
         }
         $events[$x]['food_trucks'] = $food_truck_list;
+        $total_foodtrucks = count( $food_truck_list );
+        if( $total_foodtrucks <= 6 ){
+          $foodtruck_col_class = 'col-sm-6';
+        } else if( $total_foodtrucks > 6 ){
+          $foodtruck_col_class = 'col-sm-4';
+        }
+        $events[$x]['foodtruck_col_class'] = $foodtruck_col_class;
       }
 
       $start_date = new \DateTime( get_post_meta( $post->ID, 'start_date', true ) );
@@ -171,10 +178,11 @@ function event_list( $atts ){
     }
     $data['events'] = $events;
   }
-  $style = '';
+  //uber_log('🔔 $data = ' . print_r( $data, true ) );
+
   wp_reset_postdata();
   $template = render_template( $args['template'], $data );
-  return $style.$template;
+  return $template;
 }
 add_shortcode( 'event_list', __NAMESPACE__ . '\\event_list' );
 

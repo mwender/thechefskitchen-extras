@@ -1132,10 +1132,12 @@
 }
 
 /* Events */
-.events-list-two {
+.events-list-two,
+.events-list-three {
   /* Banners  */
 }
-.events-list-two .banner {
+.events-list-two .banner,
+.events-list-three .banner {
   position: absolute;
   left: 0%;
   top: 8%;
@@ -1152,29 +1154,35 @@
   transform: rotate(7deg);
   line-height: 0.85em;
 }
-.events-list-two .banner span {
+.events-list-two .banner span,
+.events-list-three .banner span {
   display: block;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 24px;
 }
-.events-list-two .event.mobile .banner {
+.events-list-two .event.mobile .banner,
+.events-list-three .event.mobile .banner {
   left: 15%;
   top: 10%;
 }
-.events-list-two .event {
+.events-list-two .event,
+.events-list-three .event {
   display: flex;
   position: relative;
   align-items: stretch;
 }
-.events-list-two .event .border {
+.events-list-two .event .border,
+.events-list-three .event .border {
   margin: 5px;
   border: 3px solid #ce3a0d;
   border-radius: 10px;
 }
-.events-list-two .event.clinton .border {
+.events-list-two .event.clinton .border,
+.events-list-three .event.clinton .border {
   border-color: #80b8b9;
 }
-.events-list-two .event .date {
+.events-list-two .event .date,
+.events-list-three .event .date {
   background-color: #ce3a0d;
   color: #fff;
   font-family: "Roboto Slab", serif;
@@ -1182,25 +1190,34 @@
   font-size: 2em;
   font-weight: bold;
 }
-.events-list-two .event.clinton .date {
+.events-list-two .event.clinton .date,
+.events-list-three .event.clinton .date {
   background-color: #80b8b9;
 }
-.events-list-two .event .time {
+.events-list-two .event .time,
+.events-list-three .event .time {
   padding: 0.25em;
   text-align: center;
   font-family: "Roboto Slab", serif;
   font-weight: bold;
   font-size: 1.25em;
 }
-.events-list-two .event .foodtrucks {
+.events-list-two .event .foodtrucks,
+.events-list-three .event .foodtrucks {
   padding: 1em;
 }
-.events-list-two .event .location {
+.events-list-two .event .location,
+.events-list-three .event .location {
   padding: 1em;
   text-align: center;
 }
-.events-list-two .event .location p {
+.events-list-two .event .location p,
+.events-list-three .event .location p {
   margin-bottom: 0 !important;
+}
+
+.events-list-three .event .date {
+  font-size: 2.5em;
 }
 
 .events-list-one {
