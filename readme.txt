@@ -5,7 +5,7 @@ Tags: shortcodes
 Requires at least: 5.7
 Tested up to: 5.9.1
 Requires PHP: 7.4
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,9 @@ Add `[subpage_list/]` to display a list of sub pages.
 ```
 
 == Changelog ==
+
+= 1.1.2 =
+* Adding `parent_col_class` for sizing `event-list-03.hbs` according to number of Food Trucks.
 
 = 1.1.1 =
 * Adding "Social Graphic Page" option to "Locations" ACF Options.

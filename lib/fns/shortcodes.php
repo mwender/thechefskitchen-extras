@@ -151,10 +151,13 @@ function event_list( $atts ){
         $events[$x]['food_trucks'] = $food_truck_list;
         $total_foodtrucks = count( $food_truck_list );
         if( $total_foodtrucks <= 6 ){
+          $parent_col_class = 'col-sm-12';
           $foodtruck_col_class = 'col-sm-6';
         } else if( $total_foodtrucks > 6 ){
-          $foodtruck_col_class = 'col-sm-4';
+          $parent_col_class = 'col-sm-8';
+          $foodtruck_col_class = 'col-sm-6';
         }
+        $events[$x]['parent_col_class'] = $parent_col_class;
         $events[$x]['foodtruck_col_class'] = $foodtruck_col_class;
       }
 

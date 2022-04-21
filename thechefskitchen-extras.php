@@ -7,7 +7,7 @@
  * Author URI:      https://mwender.com
  * Text Domain:     thechefskitchen-extras
  * Domain Path:     /languages
- * Version:         1.1.1
+ * Version:         1.1.2
  *
  * @package         TCW_Extras
  */

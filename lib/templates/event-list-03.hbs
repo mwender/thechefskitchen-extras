@@ -1,7 +1,7 @@
 {{#if events}}
   <div class="row events-list-three">
   {{#each events}}
-    <div class="col-sm-12 event{{#if css_classes}} {{css_classes}}{{/if}}">
+    <div class="{{parent_col_class}} event{{#if css_classes}} {{css_classes}}{{/if}}">
       <div class="border">
         {{#if cancelled}}<div class="banner cancelled">Cancelled <span>Inclement Weather</span></div>{{/if}}
         <div class="date">{{current_day.fulldate}}</div>
