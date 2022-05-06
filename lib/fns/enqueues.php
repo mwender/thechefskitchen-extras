@@ -15,6 +15,9 @@ function enqueue_scripts(){
   $calendar_js = ( TCW_DEV_ENV )? 'caleandar.js' : 'caleandar.min.js' ;
   wp_register_script( 'caleandar', TCW_PLUGIN_URL . 'lib/js/' . $calendar_js, null, filemtime( TCW_PLUGIN_PATH . 'lib/js/' . $calendar_js), true );
   wp_register_script( 'caleandar-init', TCW_PLUGIN_URL . 'lib/js/caleandar.init.js', [ 'caleandar' ], filemtime( TCW_PLUGIN_PATH . 'lib/js/caleandar.init.js'), true );
+  wp_localize_script( 'caleandar-init', 'wpvars', [
+    'apiEndpoint' => get_rest_url( null, '/tcw/v1/events' )
+  ]);
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_scripts' );
 
