@@ -5,7 +5,7 @@ Tags: shortcodes
 Requires at least: 5.7
 Tested up to: 5.9.1
 Requires PHP: 7.4
-Stable tag: 1.1.2
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,13 @@ Add `[subpage_list/]` to display a list of sub pages.
 ```
 
 == Changelog ==
+
+= 1.2.0 =
+* New `[eventcalendar]` shortcode powered by `calenandar.js`.
+* Backend support for Single Event views.
+  * Added "Single Event Template" option for Location CPTs.
+  * `[single_event_template]` shortcode for displaying a Location's Elementor template on a Single Event.
+* Adding `is_elementor_edit_mode()` for checking if Elementor is in Edit Mode.
 
 = 1.1.2 =
 * Adding `parent_col_class` for sizing `event-list-03.hbs` according to number of Food Trucks.
