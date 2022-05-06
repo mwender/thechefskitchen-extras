@@ -1,0 +1,149 @@
+$borderWidth: 2px;
+$titleFontSize: 14px;
+
+.cld-main{
+  width: 100%;
+
+  a{
+    color: darken( $primaryBlue, 15% );
+  }
+
+  .cld-datetime{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 66%;
+    min-width: 100px;
+    max-width: 300px;
+    margin: auto auto 1em auto;
+    overflow: hidden;
+
+    .today{
+      position: relative;
+      /*float: left;*/
+      width: calc(100% - 40px);
+      margin: auto;
+      text-align: center;
+      font-family: 'Roboto Slab', sans-serif;
+      font-weight: bold;
+      font-size: 2em;
+    }
+  }
+
+  .cld-nav{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    /*margin-top: 2px;*/
+
+    &:hover{
+      cursor: pointer;
+
+      svg{
+        fill: #666;
+      }
+    }
+  }
+
+  .cld-labels, .cld-days{
+    padding-left: 2%;
+  }
+  .cld-label, .cld-day{
+    box-sizing: border-box;
+    display: inline-block;
+    /*width: 14.28%;*/
+    width: 14%;
+    text-align: center;
+  }
+
+  .cld-day{
+    display: block;
+    float: left;
+    position: relative;
+    margin: 0;
+    padding: 5px;
+    /*height: 100px;*/
+    padding-top: 10%;
+    background-color: #f7f7f7;
+    border: $borderWidth solid #ddd;
+    border-width: $borderWidth $borderWidth 0 0;
+    overflow-y: auto;
+
+    &:nth-child(1),
+    &:nth-child(8),
+    &:nth-child(15),
+    &:nth-child(22),
+    &:nth-child(29),
+    &:nth-child(36){
+      border-left-width: $borderWidth;
+    }
+
+    &:hover{
+      background: #eee;
+    }
+
+    &.clickable:hover{
+      cursor: pointer;
+    }
+    &.today{
+      background-color: #d6ffdb;
+    }
+    &.disableDay{
+      opacity: 0.5;
+    }
+
+    &.nextMonth,
+    &.prevMonth{
+      opacity: 0.33;
+    }
+  }
+
+  .cld-number{
+    margin: 5px 10px;
+    text-align: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    &.eventday{
+      font-weight: bold;
+
+      /*
+      &:hover{
+        background: #eee;
+      }
+      */
+    }
+  }
+  .cld-title{
+    font-size: $titleFontSize;
+    display: block;
+    margin: 0;
+    font-weight: normal;
+
+    .event-time{
+      color: #000;
+      margin-right: 4px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    /* Labels */
+    .cancelled{
+      background-color: rgba(15,140,211,0.95);
+      color: #fff;
+      padding: 1px 6px;
+      border-radius: 10px;
+      font-size: 12px;
+      text-transform: capitalize;
+      border: 1px solid #fff;
+    }
+  }
+
+
+
+}
+

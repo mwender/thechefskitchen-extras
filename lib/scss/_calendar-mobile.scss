@@ -1,0 +1,140 @@
+.cld-main{
+  width: 100%;
+
+  a{
+    color: #0080FF;
+  }
+  svg{
+    fill: #0080FF;
+  }
+
+  .cld-datetime{
+    display: flex;
+    position: relative;
+    width: 66%;
+    min-width: 100px;
+    max-width: 300px;
+    margin: auto auto 1em auto;
+    overflow: hidden;
+
+    .today{
+      position: relative;
+      float: left;
+      width: calc(100% - 40px);
+      margin: auto;
+      text-align: center;
+
+      .cld-number.eventday:hover{
+        background: #005EFF;
+      }
+    }
+  }
+
+  .cld-nav{
+    position: relative;
+    width: 24px;
+    height: 24px;
+
+    &:hover{
+      cursor: pointer;
+
+      & svg{
+          fill: #005EFF;
+      }
+    }
+  }
+
+  .cld-rwd{
+    float: left;
+  }
+  .cld-fwd{
+    float: right;
+  }
+
+  .cld-labels,
+  .cld-days{
+    padding-left: 0;
+  }
+  .cld-label,
+  .cld-day{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 14.28%;
+    text-align: center;
+  }
+
+  .cld-day{
+    border: 1px solid #eee;
+
+    &.today .cld-number{
+      background: #0080FF;
+      color: #fff;
+    }
+
+    &.disableDay{
+      opacity: 0.5;
+    }
+
+    &.nextMonth,
+    &.prevMonth{
+      opacity: 0.33;
+    }
+  }
+
+  .cld-number{
+    position: relative;
+    margin: 0;
+    padding: 10px;
+
+    &:hover .cld-title{
+      display: block;
+    }
+
+    &.eventday{
+      font-weight: bold;
+      color: #0080FF;
+    }
+    &.eventday:hover{
+      cursor: pointer;
+      background: #eee;
+    }
+  }
+
+  .cld-title{
+    position: absolute;
+    z-index: 5;
+    display: none;
+    top: 35px;
+    left: 0;
+    padding: 5px 10px;
+    background: #fff;
+    white-space: nowrap;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+
+    &:nth-child(2){
+      top: 70px;
+    }
+    &:nth-child(3){
+      top: 105px;
+    }
+    &:nth-child(4){
+      top: 140px;
+    }
+    &:nth-child(5){
+      top: 175px;
+    }
+
+    &::before{
+      content: '';
+      position: absolute;
+      top: -7.5px; left: 10px;
+      width: 0;
+      height: 0;
+      border-left: 7.5px solid transparent;
+      border-right: 7.5px solid transparent;
+      border-bottom: 7.5px solid #ccc;
+    }
+  }
+}

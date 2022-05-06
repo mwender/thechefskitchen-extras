@@ -3,3 +3,11 @@
 @import '_variables';
 @import '_team-members';
 @import '_events';
+
+
+@media ( min-width: 680px ){
+ @import '_calendar';
+}
+@media ( max-width: 679px ){
+ @import '_calendar-mobile';
+}

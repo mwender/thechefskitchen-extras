@@ -1219,6 +1219,11 @@
 .events-list-three .event .date {
   font-size: 2.5em;
 }
+@media (max-width: 1024px) {
+  .events-list-three .event .date {
+    font-size: 1.5em;
+  }
+}
 
 .events-list-one {
   /* Banners  */
@@ -1344,6 +1349,251 @@
   }
   .events-list-one .event.desktop {
     display: none;
+  }
+}
+
+@media (min-width: 680px) {
+  .cld-main {
+    width: 100%;
+  }
+  .cld-main a {
+    color: #0076a3;
+  }
+  .cld-main .cld-datetime {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 66%;
+    min-width: 100px;
+    max-width: 300px;
+    margin: auto auto 1em auto;
+    overflow: hidden;
+  }
+  .cld-main .cld-datetime .today {
+    position: relative;
+    /*float: left;*/
+    width: calc(100% - 40px);
+    margin: auto;
+    text-align: center;
+    font-family: "Roboto Slab", sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+  }
+  .cld-main .cld-nav {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    /*margin-top: 2px;*/
+  }
+  .cld-main .cld-nav:hover {
+    cursor: pointer;
+  }
+  .cld-main .cld-nav:hover svg {
+    fill: #666;
+  }
+  .cld-main .cld-labels, .cld-main .cld-days {
+    padding-left: 2%;
+  }
+  .cld-main .cld-label, .cld-main .cld-day {
+    box-sizing: border-box;
+    display: inline-block;
+    /*width: 14.28%;*/
+    width: 14%;
+    text-align: center;
+  }
+  .cld-main .cld-day {
+    display: block;
+    float: left;
+    position: relative;
+    margin: 0;
+    padding: 5px;
+    /*height: 100px;*/
+    padding-top: 10%;
+    background-color: #f7f7f7;
+    border: 2px solid #ddd;
+    border-width: 2px 2px 0 0;
+    overflow-y: auto;
+  }
+  .cld-main .cld-day:nth-child(1), .cld-main .cld-day:nth-child(8), .cld-main .cld-day:nth-child(15), .cld-main .cld-day:nth-child(22), .cld-main .cld-day:nth-child(29), .cld-main .cld-day:nth-child(36) {
+    border-left-width: 2px;
+  }
+  .cld-main .cld-day:hover {
+    background: #eee;
+  }
+  .cld-main .cld-day.clickable:hover {
+    cursor: pointer;
+  }
+  .cld-main .cld-day.today {
+    background-color: #d6ffdb;
+  }
+  .cld-main .cld-day.disableDay {
+    opacity: 0.5;
+  }
+  .cld-main .cld-day.nextMonth, .cld-main .cld-day.prevMonth {
+    opacity: 0.33;
+  }
+  .cld-main .cld-number {
+    margin: 5px 10px;
+    text-align: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .cld-main .cld-number.eventday {
+    font-weight: bold;
+    /*
+    &:hover{
+      background: #eee;
+    }
+    */
+  }
+  .cld-main .cld-title {
+    font-size: 14px;
+    display: block;
+    margin: 0;
+    font-weight: normal;
+    /* Labels */
+  }
+  .cld-main .cld-title .event-time {
+    color: #000;
+    margin-right: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .cld-main .cld-title .cancelled {
+    background-color: rgba(15, 140, 211, 0.95);
+    color: #fff;
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-size: 12px;
+    text-transform: capitalize;
+    border: 1px solid #fff;
+  }
+}
+@media (max-width: 679px) {
+  .cld-main {
+    width: 100%;
+  }
+  .cld-main a {
+    color: #0080FF;
+  }
+  .cld-main svg {
+    fill: #0080FF;
+  }
+  .cld-main .cld-datetime {
+    display: flex;
+    position: relative;
+    width: 66%;
+    min-width: 100px;
+    max-width: 300px;
+    margin: auto auto 1em auto;
+    overflow: hidden;
+  }
+  .cld-main .cld-datetime .today {
+    position: relative;
+    float: left;
+    width: calc(100% - 40px);
+    margin: auto;
+    text-align: center;
+  }
+  .cld-main .cld-datetime .today .cld-number.eventday:hover {
+    background: #005EFF;
+  }
+  .cld-main .cld-nav {
+    position: relative;
+    width: 24px;
+    height: 24px;
+  }
+  .cld-main .cld-nav:hover {
+    cursor: pointer;
+  }
+  .cld-main .cld-nav:hover svg {
+    fill: #005EFF;
+  }
+  .cld-main .cld-rwd {
+    float: left;
+  }
+  .cld-main .cld-fwd {
+    float: right;
+  }
+  .cld-main .cld-labels,
+.cld-main .cld-days {
+    padding-left: 0;
+  }
+  .cld-main .cld-label,
+.cld-main .cld-day {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 14.28%;
+    text-align: center;
+  }
+  .cld-main .cld-day {
+    border: 1px solid #eee;
+  }
+  .cld-main .cld-day.today .cld-number {
+    background: #0080FF;
+    color: #fff;
+  }
+  .cld-main .cld-day.disableDay {
+    opacity: 0.5;
+  }
+  .cld-main .cld-day.nextMonth, .cld-main .cld-day.prevMonth {
+    opacity: 0.33;
+  }
+  .cld-main .cld-number {
+    position: relative;
+    margin: 0;
+    padding: 10px;
+  }
+  .cld-main .cld-number:hover .cld-title {
+    display: block;
+  }
+  .cld-main .cld-number.eventday {
+    font-weight: bold;
+    color: #0080FF;
+  }
+  .cld-main .cld-number.eventday:hover {
+    cursor: pointer;
+    background: #eee;
+  }
+  .cld-main .cld-title {
+    position: absolute;
+    z-index: 5;
+    display: none;
+    top: 35px;
+    left: 0;
+    padding: 5px 10px;
+    background: #fff;
+    white-space: nowrap;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+  .cld-main .cld-title:nth-child(2) {
+    top: 70px;
+  }
+  .cld-main .cld-title:nth-child(3) {
+    top: 105px;
+  }
+  .cld-main .cld-title:nth-child(4) {
+    top: 140px;
+  }
+  .cld-main .cld-title:nth-child(5) {
+    top: 175px;
+  }
+  .cld-main .cld-title::before {
+    content: "";
+    position: absolute;
+    top: -7.5px;
+    left: 10px;
+    width: 0;
+    height: 0;
+    border-left: 7.5px solid transparent;
+    border-right: 7.5px solid transparent;
+    border-bottom: 7.5px solid #ccc;
   }
 }
 
