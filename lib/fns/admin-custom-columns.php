@@ -12,7 +12,7 @@ namespace tcw\customcolumns;
 function set_event_edit_columns($columns) {
   $columns['event_date']        = __( 'Event Date', 'tcw' );
   $columns['food_trucks'] = __( 'Food Trucks', 'tcw' );
-  $columns['location']    = __( 'Location', 'tcw' );
+  /*$columns['location']    = __( 'Location', 'tcw' );*/
 
   // Re-order columns
   $columns = [
@@ -20,7 +20,7 @@ function set_event_edit_columns($columns) {
     'title'       => $columns['title'],
     'event_date'  => $columns['event_date'],
     'food_trucks' => $columns['food_trucks'],
-    'location'    => $columns['location'],
+    /*'location'    => $columns['location'],*/
     'tags'        => $columns['tags'],
   ];
   return $columns;
@@ -96,10 +96,10 @@ function event_sortable_columns( $columns ){
 add_filter( 'manage_edit-event_sortable_columns', __NAMESPACE__ . '\\event_sortable_columns' );
 
 /**
- * Populates the custom columns for the Team Member CPT admin listing.
+ * Populates the custom columns for the Event CPT admin listing.
  *
  * @param      string  $column   The column
- * @param      int     $post_id  The post identifier
+ * @param      int     $post_id  The post ID
  */
 function custom_event_column( $column, $post_id ){
   switch( $column ){
@@ -108,7 +108,7 @@ function custom_event_column( $column, $post_id ){
       $start_date = new \DateTime( $start_date );
       $end_date = get_post_meta( $post_id, 'end_date', true );
       $end_date = new \DateTime( $end_date );
-        echo $start_date->format( 'm/d/y ga' ) . '-' . $end_date->format( 'ga' );
+        echo $start_date->format( 'l, M d, Y' ) . '<br>' . $start_date->format( 'g' ). '-' . $end_date->format( 'ga' );
       break;
 
     case 'food_trucks':
