@@ -4,7 +4,7 @@
   "main": "Gruntfile.js",
   "author": "TheWebist",
   "scripts": {
-    "sassdev": "sass lib/scss/main.scss lib/css/main.css --style=expanded --embed-sources",
+    "sassdev": "sass lib/scss/main.scss lib/css/main.css --style=expanded --embed-sources --watch",
     "sassprod": "sass lib/scss/main.scss lib/dist/main.css --style=compressed --no-source-map"
   },
   "devDependencies": {},
