@@ -7,7 +7,7 @@
  * Author URI:      https://mwender.com
  * Text Domain:     thechefskitchen-extras
  * Domain Path:     /languages
- * Version:         1.1.2
+ * Version:         1.2.0
  *
  * @package         TCW_Extras
  */
@@ -15,7 +15,8 @@
 // Your code starts here.
 $css_dir = ( stristr( site_url(), '.local' ) || SCRIPT_DEBUG )? 'css' : 'dist' ;
 define( 'TCW_CSS_DIR', $css_dir );
-define( 'TCW_DEV_ENV', stristr( site_url(), '.local' ) );
+$dev_env = ( '.local' == stristr( site_url(), '.local' ) ) ? true : false ;
+define( 'TCW_DEV_ENV', $dev_env );
 define( 'TCW_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'TCW_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -32,6 +33,7 @@ if( file_exists( TCW_PLUGIN_PATH . 'vendor/autoload.php' ) ){
 
 
 // Load required files
+require_once( TCW_PLUGIN_PATH . 'lib/fns/api.php' );
 require_once( TCW_PLUGIN_PATH . 'lib/fns/acf-json-save-point.php' );
 require_once( TCW_PLUGIN_PATH . 'lib/fns/admin-custom-columns.php' );
 require_once( TCW_PLUGIN_PATH . 'lib/fns/enqueues.php' );
@@ -71,6 +73,18 @@ if( ! function_exists( 'uber_log' ) ){
       error_log( "\n\n" . str_repeat('-', 25 ) . ' STARTING DEBUG [' . date('h:i:sa', current_time('timestamp') ) . '] ' . str_repeat('-', 25 ) . "\n\n" );
     error_log( "\n" . $counter . '. ' . basename( $caller['file'] ) . '::' . $caller['line'] . "\n" . $message . "\n---\n" );
     $counter++;
+  }
+}
+
+if( ! function_exists( 'is_elementor_edit_mode') ){
+  /**
+   * Determines if Elementor Edit Mode is active.
+   *
+   * @return     bool  True if elementor edit mode, False otherwise.
+   */
+  function is_elementor_edit_mode(){
+    $edit_mode = \Elementor\Plugin::$instance->editor->is_edit_mode();
+    return $edit_mode;
   }
 }
 
