@@ -12,6 +12,7 @@ namespace tcw\events;
  * @return     mixed  The value of the field.
  */
 function update_event_title( $value, $post_id, $field ){
+  /*
   $start_date = get_field( 'start_date', $post_id );
   $start_date_object = new \DateTime( $start_date );
 
@@ -27,17 +28,23 @@ function update_event_title( $value, $post_id, $field ){
   $times = ( $start_am_pm == $end_am_pm )? $start_date_object->format( 'g' ) . ' - ' . $end_date_object->format( 'g' ) . $end_am_pm : $start_date_object->format( 'g' ) . $start_am_pm . ' - ' . $end_date_object->format( 'g' ) . $end_am_pm;
 
   $title = $start_date_object->format( 'D, M j, Y' ) . ', ' . $times . ' at '. $location_name;
+  */
 
-  $slug = sanitize_title( $title );
+  $location = get_field( 'location', $post_id );
+  $location_name = $location->post_title;
+  $title = $location_name;
 
-  $postdata = array(
-    'ID'          => $post_id,
-    'post_title'  => $title,
-    'post_type'   => 'event',
-    'post_name'   => $slug,
-  );
+  if( ! empty( $title ) ){
+    $slug = sanitize_title( $title );
+    $postdata = array(
+      'ID'          => $post_id,
+      'post_title'  => $title,
+      'post_type'   => 'event',
+      'post_name'   => $slug,
+    );
 
-  wp_update_post( $postdata );
+    wp_update_post( $postdata );
+  }
 
   return $value;
 }
