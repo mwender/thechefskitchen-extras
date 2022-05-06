@@ -19,27 +19,8 @@ function event_list( $atts ){
     'dataonly'  => false,
   ], $atts );
 
-  if( 'location' == get_post_type( $post ) ){
-    $location_tag_id = get_post_meta( $post->ID, 'location_tag', true );
-    if( $location_tag_id && is_numeric( $location_tag_id ) )
-      $args['tag_id'] = $location_tag_id;
-  } else if( 'event' == get_post_type( $post ) ){
-    $location_id = get_post_meta( $post->ID, 'location', true );
-    $location_tag_id = get_post_meta( $location_id, 'location_tag', true );
-    if( $location_tag_id && is_numeric( $location_tag_id ) )
-      $args['tag_id'] = $location_tag_id;
-  }
-
-  wp_enqueue_script( 'elementor-tab-enhancers' );
-
   $data = [];
   $today = date('Y-m-d');
-
-  $data['no_events'] = get_alert([
-    'title'       => 'More Foodie Events Coming Soon!',
-    'type'        => 'info',
-    'description' => 'We will be adding new events to our calendar soon. Until then, <a href="#get-connected">sign up to be notified</a>.',
-  ]);
 
   $get_posts_args = [
     'post_type'       => 'event',
@@ -52,6 +33,33 @@ function event_list( $atts ){
     'value'           => $today,
     'type'            => 'DATE',
   ];
+
+  $single_event = false;
+
+  if( 'location' == get_post_type( $post ) ){
+    $location_tag_id = get_post_meta( $post->ID, 'location_tag', true );
+    if( $location_tag_id && is_numeric( $location_tag_id ) )
+      $args['tag_id'] = $location_tag_id;
+  } else if( 'event' == get_post_type( $post ) ){
+    $single_event = true;
+    $location_id = get_post_meta( $post->ID, 'location', true );
+    $location_tag_id = get_post_meta( $location_id, 'location_tag', true );
+    if( $location_tag_id && is_numeric( $location_tag_id ) )
+      $args['tag_id'] = $location_tag_id;
+
+    // Remove data based query
+    unset( $get_posts_args['meta_key'], $get_posts_args['meta_value'], $get_posts_args['orderby'], $get_posts_args['order'], $get_posts_args['meta_compare'], $get_posts_args['value'], $get_posts_args['type']  );
+    $get_posts_args['p'] = $post->ID;
+  }
+
+  wp_enqueue_script( 'elementor-tab-enhancers' );
+
+  $data['no_events'] = get_alert([
+    'title'       => 'More Foodie Events Coming Soon!',
+    'type'        => 'info',
+    'description' => 'We will be adding new events to our calendar soon. Until then, <a href="#get-connected">sign up to be notified</a>.',
+  ]);
+
   if( ! is_null( $args['tag'] ) )
     $get_posts_args['tag'] = $args['tag'];
 
@@ -124,7 +132,7 @@ function event_list( $atts ){
       //$fulldate_format = ( 1 == $args['limit'] )? 'l, M j, Y' : 'm/d/y';
       //$events[$x]['current_day']['fulldate'] = $start_date->format( $fulldate_format );
 
-      if( 1 == $args['limit'] ){
+      if( $single_event ){
         $events[$x]['current_day']['fulldate'] = $start_date->format( 'M j, Y' ) . ' • ' . $start_date->format( 'g' ) . '-' . $end_date->format( 'ga' );
       } else {
         $events[$x]['current_day']['fulldate'] = $start_date->format( 'm/d/y' );

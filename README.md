@@ -97,6 +97,9 @@ Add `[subpage_list/]` to display a list of sub pages.
 
 ## Changelog ##
 
+### 1.2.2 ###
+* BUGFIX: Updating `[event_list]` to query by the current Post ID if we are using it on an Event CPT.
+
 ### 1.2.1 ###
 * BUGFIX: Dynamically generating Events API endpoint URL for `caleandar.init.js`.
 
