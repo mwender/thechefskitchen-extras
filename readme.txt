@@ -97,6 +97,9 @@ Add `[subpage_list/]` to display a list of sub pages.
 
 == Changelog ==
 
+= 1.3.0 =
+* Updating the `[single_event_template]` shortcode to retrieve the "Single Event Template" from the current location if used in the `post_content` for a Location CPT.
+
 = 1.2.2 =
 * BUGFIX: Updating `[event_list]` to query by the current Post ID if we are using it on an Event CPT.
 
