@@ -5,7 +5,7 @@
 **Requires at least:** 5.7  
 **Tested up to:** 5.9.1  
 **Requires PHP:** 7.4  
-**Stable tag:** 1.2.1  
+**Stable tag:** 1.3.1  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -96,6 +96,9 @@ Add `[subpage_list/]` to display a list of sub pages.
 ```
 
 ## Changelog ##
+
+### 1.3.1 ###
+* BUGFIX: Ensuring variable is an array.
 
 ### 1.3.0 ###
 * Updating the `[single_event_template]` shortcode to retrieve the "Single Event Template" from the current location if used in the `post_content` for a Location CPT.

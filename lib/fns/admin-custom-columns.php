@@ -115,6 +115,7 @@ function custom_event_column( $column, $post_id ){
       $food_trucks = get_post_meta( $post_id, 'food_trucks' );
       if( $food_trucks && is_array( $food_trucks ) ){
         $food_trucks = $food_trucks[0];
+        $food_truck_list = [];
         foreach( $food_trucks as $food_truck_id ){
           $food_truck_list[] = get_the_title( $food_truck_id );
         }
