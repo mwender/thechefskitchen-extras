@@ -5,7 +5,7 @@
 **Requires at least:** 5.7  
 **Tested up to:** 5.9.1  
 **Requires PHP:** 7.4  
-**Stable tag:** 1.3.1  
+**Stable tag:** 1.4.0  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -96,6 +96,10 @@ Add `[subpage_list/]` to display a list of sub pages.
 ```
 
 ## Changelog ##
+
+### 1.4.0 ###
+* Updating calendar to show events starting 360 days in the past.
+* Removing comma between month and year in calendar title.
 
 ### 1.3.1 ###
 * BUGFIX: Ensuring variable is an array.
