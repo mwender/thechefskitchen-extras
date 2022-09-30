@@ -19,18 +19,19 @@ function calendar_api(){
     'tag_id'    => null,
     'dataonly'  => false,
   ];
-  $today = date('Y-m-d');
+  $today = date( 'Y-m-d', strtotime('-360 days') );
 
   $get_posts_args = [
     'post_type'       => 'event',
     'posts_per_page'  => $args['limit'],
     'meta_key'        => 'start_date',
-    'meta_value'      => date('Y-m-d'),
+    'meta_value'      => $today, /* date('Y-m-d') */
     'orderby'         => 'meta_value',
     'order'           => 'ASC',
     'meta_compare'    => '>=',
     'value'           => $today,
     'type'            => 'DATE',
+
   ];
   if( ! is_null( $args['tag'] ) )
     $get_posts_args['tag'] = $args['tag'];
