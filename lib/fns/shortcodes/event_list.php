@@ -17,16 +17,19 @@ function event_list( $atts ){
     'template'  => 'event-list-01',
     'tag_id'    => null,
     'dataonly'  => false,
+    'weeks'     => 3,
   ], $atts );
 
   $data = [];
-  $today = date('Y-m-d');
+
+  $timestr = ( is_numeric( $args['weeks'] ) )? sprintf( '-%d weeks', $args['weeks'] ) : '-3 weeks' ;
+  $today = date( 'Y-m-d', strtotime( $timestr ) );
 
   $get_posts_args = [
     'post_type'       => 'event',
     'posts_per_page'  => $args['limit'],
     'meta_key'        => 'start_date',
-    'meta_value'      => date('Y-m-d'),
+    'meta_value'      => $today,
     'orderby'         => 'meta_value',
     'order'           => 'ASC',
     'meta_compare'    => '>=',
