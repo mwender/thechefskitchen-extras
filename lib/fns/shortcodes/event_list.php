@@ -23,17 +23,18 @@ function event_list( $atts ){
   $data = [];
 
   $timestr = ( is_numeric( $args['weeks'] ) )? sprintf( '-%d weeks', $args['weeks'] ) : '-3 weeks' ;
-  $today = date( 'Y-m-d', strtotime( $timestr ) );
+  $start_date = date( 'Y-m-d', strtotime( $timestr ) );
+  $today = current_time( 'U' );
 
   $get_posts_args = [
     'post_type'       => 'event',
     'posts_per_page'  => $args['limit'],
     'meta_key'        => 'start_date',
-    'meta_value'      => $today,
+    'meta_value'      => $start_date,
     'orderby'         => 'meta_value',
     'order'           => 'ASC',
     'meta_compare'    => '>=',
-    'value'           => $today,
+    'value'           => $start_date,
     'type'            => 'DATE',
   ];
 
@@ -134,6 +135,9 @@ function event_list( $atts ){
       $end_date = new \DateTime( get_post_meta( $post->ID, 'end_date', true ) );
       //$fulldate_format = ( 1 == $args['limit'] )? 'l, M j, Y' : 'm/d/y';
       //$events[$x]['current_day']['fulldate'] = $start_date->format( $fulldate_format );
+
+      if( $start_date->format( 'U') < $today )
+        $events[$x]['css_classes'] .= ' past-event';
 
       if( $single_event ){
         $events[$x]['current_day']['fulldate'] = $start_date->format( 'M j, Y' ) . ' • ' . $start_date->format( 'g' ) . '-' . $end_date->format( 'ga' );

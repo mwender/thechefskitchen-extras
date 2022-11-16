@@ -42,6 +42,21 @@
       border-radius: 10px;
     }
 
+    &.past-event{
+      .border{
+        border-color: #999;
+      }
+      .date{
+        background-color: #999;
+      }
+      .foodtrucks{
+        .foodtruck img{
+          filter: grayscale(90%);
+          opacity: 50%;
+        }
+      }
+    }
+
     &.clinton .border{
       border-color: $clintonBlue;
     }

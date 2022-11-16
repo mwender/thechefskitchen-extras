@@ -1177,6 +1177,19 @@
   border: 3px solid #ce3a0d;
   border-radius: 10px;
 }
+.events-list-two .event.past-event .border,
+.events-list-three .event.past-event .border {
+  border-color: #999;
+}
+.events-list-two .event.past-event .date,
+.events-list-three .event.past-event .date {
+  background-color: #999;
+}
+.events-list-two .event.past-event .foodtrucks .foodtruck img,
+.events-list-three .event.past-event .foodtrucks .foodtruck img {
+  filter: grayscale(90%);
+  opacity: 50%;
+}
 .events-list-two .event.clinton .border,
 .events-list-three .event.clinton .border {
   border-color: #80b8b9;
