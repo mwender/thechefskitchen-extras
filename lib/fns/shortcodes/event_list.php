@@ -136,7 +136,7 @@ function event_list( $atts ){
       //$fulldate_format = ( 1 == $args['limit'] )? 'l, M j, Y' : 'm/d/y';
       //$events[$x]['current_day']['fulldate'] = $start_date->format( $fulldate_format );
 
-      if( $start_date->format( 'U') < $today )
+      if( $end_date->format('U') < $today )
         $events[$x]['css_classes'] .= ' past-event';
 
       if( $single_event ){

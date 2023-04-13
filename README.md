@@ -97,8 +97,11 @@ Add `[subpage_list/]` to display a list of sub pages.
 
 ## Changelog ##
 
+### 1.6.1 ###
+* Updating `[event_list/]` shortcode to add `.past-event` to events based on the event's End Date.
+
 ### 1.6.0 ###
-* Adding `.past-events` to events older than today along with CSS for indicating old events.
+* Adding `.past-event` to events older than today along with CSS for indicating old events.
 
 ### 1.5.0 ###
 * Adding `weeks` attribute to `[event_list/]` to allow for setting the number of weeks back the shortcode displays events.
