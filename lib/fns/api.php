@@ -150,6 +150,9 @@ function save_event_thumbnail( \WP_REST_Request $request ){
   //WP_CLI::line('👉 importing with $args = ' . print_r( $args, true ) . ' and $import_filename = ' . $import_filename );
   $attachment_id = wp_insert_attachment( $args, $wp_upload_dir['path'] . '/' . $filename );
   if( set_post_thumbnail( $event_id, $attachment_id ) ){
+    if( function_exists( 'spinupwp_purge_post' ) )
+      spinupwp_purge_post( $event_id );
+
     wp_send_json([
       'thumbnail_saved' => true,
     ], 200 );
