@@ -51,3 +51,27 @@ function update_event_title( $value, $post_id, $field ){
 add_filter('acf/update_value/name=start_date', __NAMESPACE__ . '\\update_event_title', 10, 3);
 add_filter('acf/update_value/name=end_date', __NAMESPACE__ . '\\update_event_title', 10, 3);
 add_filter('acf/update_value/name=location', __NAMESPACE__ . '\\update_event_title', 10, 3);
+
+function event_thumbnail_meta_box() {
+  add_meta_box(
+    'event-thumbnail',
+    'Event Thumbnail',
+    __NAMESPACE__ . '\\event_thumbnail_meta_box_callback',
+    'event',
+    'normal',
+    'default'
+  );
+}
+
+function event_thumbnail_meta_box_callback() {
+  global $post;
+  if( 'publish' == get_post_status( $post ) ){
+    echo '<div style="">';
+    submit_button( 'Generate an Event Thumbnail', 'primary', 'submit', false, [ 'id' => 'generate-event-thumbnail' ] );
+    echo '</div>';
+  } else {
+    echo '<p>You must first publish this event in order to generate an Event Thumbnail.</p>';
+  }
+}
+
+add_action( 'add_meta_boxes', __NAMESPACE__ . '\\event_thumbnail_meta_box' );
