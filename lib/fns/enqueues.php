@@ -21,6 +21,19 @@ function enqueue_scripts(){
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_scripts' );
 
+function admin_enqueue_scripts(){
+  $screen = get_current_screen();
+  if ( $screen->id === 'event' && $screen->base === 'post' ) {
+    global $post;
+    wp_enqueue_script( 'save-event-thumbnail', TCW_PLUGIN_URL . 'lib/js/save-event-thumbnail.js', null, filemtime( TCW_PLUGIN_PATH . 'lib/js/save-event-thumbnail.js' ), true );
+    wp_localize_script( 'save-event-thumbnail', 'wpvars', [
+      'ep' => get_rest_url( null, '/tcw/v1/event?id=' . $post->ID ),
+      'nonce' => wp_create_nonce( 'wp_rest' ),
+    ]);
+  }
+}
+add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\admin_enqueue_scripts' );
+
 /**
  * Custom styles for the WP Admin
  */
