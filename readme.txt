@@ -97,6 +97,11 @@ Add `[subpage_list/]` to display a list of sub pages.
 
 == Changelog ==
 
+= 1.7.0 =
+* Adding auto-generation of Event thumbnails.
+* Updating admin listing for Event CPTs. Listing Food Trucks via their Featured Images and adjusting the column widths.
+* Adding Featured Image to the admin listing for Event CPTs.
+
 = 1.6.1 =
 * Updating `[event_list/]` shortcode to add `.past-event` to events based on the event's End Date.
 
