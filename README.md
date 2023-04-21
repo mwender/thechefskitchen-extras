@@ -5,7 +5,7 @@
 **Requires at least:** 5.7  
 **Tested up to:** 5.9.1  
 **Requires PHP:** 7.4  
-**Stable tag:** 1.7.1  
+**Stable tag:** 1.7.2  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -96,6 +96,9 @@ Add `[subpage_list/]` to display a list of sub pages.
 ```
 
 ## Changelog ##
+
+### 1.7.2 ###
+* Purging page cache before Event Thumbnail generation and after assigning that image as the Post Thumbnail.
 
 ### 1.7.1 ###
 * Purging page cache when saving Event thumbnail.

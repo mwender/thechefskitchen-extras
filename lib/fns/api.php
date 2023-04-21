@@ -116,6 +116,9 @@ function save_event_thumbnail( \WP_REST_Request $request ){
   if( ! defined( 'APIFLASH_ACCESS_KEY' ) )
     return wp_send_json_error( 'Please define a constant called `APIFLASH_ACCESS_KEY` with your API Flash Access Key.' );
 
+  if( function_exists( 'spinupwp_purge_post' ) )
+    spinupwp_purge_post( $event_id );
+
   $permalink = get_permalink( $event_id );
   if( TCW_DEV_ENV )
     $permalink = str_replace( '.local', '.com', $permalink );
