@@ -58,8 +58,8 @@ function event_thumbnail_meta_box() {
     'Event Thumbnail',
     __NAMESPACE__ . '\\event_thumbnail_meta_box_callback',
     'event',
-    'normal',
-    'default'
+    'side',
+    'high'
   );
 }
 
