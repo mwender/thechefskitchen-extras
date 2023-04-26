@@ -2,6 +2,7 @@
   <div class="row events-list-two">
   {{#each events}}
     <div class="col-sm-3 event{{#if css_classes}} {{css_classes}}{{/if}}">
+      <a class="share-link" href="#" onclick="openWindow(event, 'https://www.facebook.com/sharer/sharer.php?u={{permalink}}')" target="_blank">Click Here to Share</a>
       <div class="border">
         {{#if cancelled}}<div class="banner cancelled">Cancelled <span>Inclement Weather</span></div>{{/if}}
         <div class="date">{{current_day.fulldate}}</div>

@@ -32,6 +32,7 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     $inary=is_array($in);
     return ''.((LR::ifvar($cx, (($inary && isset($in['events'])) ? $in['events'] : null), false)) ? '  <div class="row events-list-two">
 '.LR::sec($cx, (($inary && isset($in['events'])) ? $in['events'] : null), null, $in, true, function($cx, $in) {$inary=is_array($in);return '    <div class="col-sm-3 event'.((LR::ifvar($cx, (($inary && isset($in['css_classes'])) ? $in['css_classes'] : null), false)) ? ' '.htmlspecialchars((string)(($inary && isset($in['css_classes'])) ? $in['css_classes'] : null), ENT_QUOTES, 'UTF-8').'' : '').'">
+      <a class="share-link" href="#" onclick="openWindow(event, \'https://www.facebook.com/sharer/sharer.php?u='.htmlspecialchars((string)(($inary && isset($in['permalink'])) ? $in['permalink'] : null), ENT_QUOTES, 'UTF-8').'\')" target="_blank">Click Here to Share</a>
       <div class="border">
         '.((LR::ifvar($cx, (($inary && isset($in['cancelled'])) ? $in['cancelled'] : null), false)) ? '<div class="banner cancelled">Cancelled <span>Inclement Weather</span></div>' : '').'
         <div class="date">'.htmlspecialchars((string)((isset($in['current_day']) && is_array($in['current_day']) && isset($in['current_day']['fulldate'])) ? $in['current_day']['fulldate'] : null), ENT_QUOTES, 'UTF-8').'</div>

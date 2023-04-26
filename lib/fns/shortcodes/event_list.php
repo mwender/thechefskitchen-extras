@@ -76,6 +76,8 @@ function event_list( $atts ){
     $x = 0;
     foreach( $futureposts as $post ){
       $events[$x]['title'] = get_the_title( $post->ID );
+      $permalink = get_the_permalink( $post );
+      $events[$x]['permalink'] = ( TCW_DEV_ENV )? str_replace( '.local', '.com', $permalink ) : $permalink ;
 
       // Get the location
       $location_id = get_post_meta( $post->ID, 'location', true );
@@ -162,13 +164,20 @@ function event_list( $atts ){
     }
     $data['events'] = $events;
   }
-  //uber_log('🔔 $data = ' . print_r( $data, true ) );
+  uber_log('🔔 $data[events] = ' . print_r( $data['events'], true ) );
 
   wp_reset_postdata();
   if( $args['dataonly'] )
     return $data;
 
   $template = render_template( $args['template'], $data );
-  return $template;
+  $js = '<script>
+function openWindow(e, MyPath)
+{
+  e.preventDefault();
+  window.open(MyPath,"","toolbar=no,status=no,menubar=no,location=center,scrollbars=no,resizable=no,height=500,width=657");
+}
+</script>';
+  return $template . $js;
 }
 add_shortcode( 'event_list', __NAMESPACE__ . '\\event_list' );

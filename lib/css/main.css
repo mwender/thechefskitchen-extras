@@ -1134,7 +1134,28 @@
 /* Events */
 .events-list-two,
 .events-list-three {
+  /* Share Link */
   /* Banners  */
+}
+.events-list-two .share-link,
+.events-list-three .share-link {
+  border: 3px solid #ce3a0d;
+  border-radius: 3px;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ce3a0d;
+  margin: 5px 5px 20px 5px;
+  padding: 6px;
+  font-family: "Roboto Slab", serif;
+  font-weight: bold;
+}
+.events-list-two .share-link:hover,
+.events-list-three .share-link:hover {
+  background-color: #ce3a0d;
+  border-color: #fff;
+  border-style: double;
+  color: #fff;
 }
 .events-list-two .banner,
 .events-list-three .banner {
@@ -1170,6 +1191,10 @@
   display: flex;
   position: relative;
   align-items: stretch;
+}
+.events-list-two .event.col-sm-3,
+.events-list-three .event.col-sm-3 {
+  display: block;
 }
 .events-list-two .event .border,
 .events-list-three .event .border {
