@@ -18,9 +18,14 @@ function event_list( $atts ){
     'tag_id'    => null,
     'dataonly'  => false,
     'weeks'     => 3,
+    'color'     => null,
   ], $atts );
 
   $data = [];
+
+  if( ! is_null( $args['color'] ) && ! empty( $args['color'] ) ){
+    $data['color'] = $args['color'];
+  }
 
   $timestr = ( is_numeric( $args['weeks'] ) )? sprintf( '-%d weeks', $args['weeks'] ) : '-3 weeks' ;
   $start_date = date( 'Y-m-d', strtotime( $timestr ) );

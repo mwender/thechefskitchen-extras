@@ -1,4 +1,18 @@
 {{#if events}}
+  {{#if color}}
+  <style>
+    .events-list-two .event .border{
+      border-color: {{color}};
+    }
+    .events-list-two .event .date{
+      background-color: {{color}};
+    }
+    .events-list-two .share-link{
+      border-color: {{color}};
+      color: {{color}};
+    }
+  </style>
+  {{/if}}
   <div class="row events-list-two">
   {{#each events}}
     <div class="col-sm-3 event{{#if css_classes}} {{css_classes}}{{/if}}">

@@ -30,7 +30,19 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     );
     
     $inary=is_array($in);
-    return ''.((LR::ifvar($cx, (($inary && isset($in['events'])) ? $in['events'] : null), false)) ? '  <div class="row events-list-two">
+    return ''.((LR::ifvar($cx, (($inary && isset($in['events'])) ? $in['events'] : null), false)) ? ''.((LR::ifvar($cx, (($inary && isset($in['color'])) ? $in['color'] : null), false)) ? '  <style>
+    .events-list-two .event .border{
+      border-color: '.htmlspecialchars((string)(($inary && isset($in['color'])) ? $in['color'] : null), ENT_QUOTES, 'UTF-8').';
+    }
+    .events-list-two .event .date{
+      background-color: '.htmlspecialchars((string)(($inary && isset($in['color'])) ? $in['color'] : null), ENT_QUOTES, 'UTF-8').';
+    }
+    .events-list-two .share-link{
+      border-color: '.htmlspecialchars((string)(($inary && isset($in['color'])) ? $in['color'] : null), ENT_QUOTES, 'UTF-8').';
+      color: '.htmlspecialchars((string)(($inary && isset($in['color'])) ? $in['color'] : null), ENT_QUOTES, 'UTF-8').';
+    }
+  </style>
+' : '').'  <div class="row events-list-two">
 '.LR::sec($cx, (($inary && isset($in['events'])) ? $in['events'] : null), null, $in, true, function($cx, $in) {$inary=is_array($in);return '    <div class="col-sm-3 event'.((LR::ifvar($cx, (($inary && isset($in['css_classes'])) ? $in['css_classes'] : null), false)) ? ' '.htmlspecialchars((string)(($inary && isset($in['css_classes'])) ? $in['css_classes'] : null), ENT_QUOTES, 'UTF-8').'' : '').'">
       <a class="share-link" href="#" onclick="openWindow(event, \'https://www.facebook.com/sharer/sharer.php?u='.htmlspecialchars((string)(($inary && isset($in['permalink'])) ? $in['permalink'] : null), ENT_QUOTES, 'UTF-8').'\')" target="_blank">Click Here to Share</a>
       <div class="border">

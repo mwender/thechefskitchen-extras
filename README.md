@@ -5,7 +5,7 @@
 **Requires at least:** 6.0  
 **Tested up to:** 6.2  
 **Requires PHP:** 7.4  
-**Stable tag:** 1.8.0  
+**Stable tag:** 1.9.0  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -96,6 +96,9 @@ Add `[subpage_list/]` to display a list of sub pages.
 ```
 
 ## Changelog ##
+
+### 1.9.0 ###
+* Adding `color` attribute to the `[event_list/]` shortcode. This attribue is currently working when `template="event-list-02"`. Specify a valid CSS color keyword or a hex color value including the `#`. Example: `color="#009900"`.
 
 ### 1.8.0 ###
 * Adding "Click Here to Share" for each event for `[event_list template="event-list-02"]`.
